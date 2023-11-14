@@ -1,18 +1,14 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomerServiceService } from 'src/app/service/customer-service.service';
 
 @Component({
-  selector: 'app-cutomer-dashboard',
-  templateUrl: './cutomer-dashboard.component.html',
-  styleUrls: ['./cutomer-dashboard.component.css']
+  selector: 'app-customer-passbook',
+  templateUrl: './customer-passbook.component.html',
+  styleUrls: ['./customer-passbook.component.css']
 })
-export class CutomerDashboardComponent {
-  condition=true;
-  sharedComponent:any
-  rollNo:any;
+export class CustomerPassbookComponent {
   constructor(private auth:CustomerServiceService,private routeSet:Router)
   {
     
@@ -20,8 +16,6 @@ export class CutomerDashboardComponent {
   
 
   reset(){location.reload()}
-
-  
 passbook:any;
 showPassbook=false;
 //view Pass book
@@ -48,47 +42,6 @@ this.auth.ViewPassBook(id).subscribe(
   }
 )
 }
-
-
-
-
-//ask query form
-showQuery=false;
-
-viewQueryForm()
-{
-this.showQuery=true
-}
-
-
-
-//document form
-showDocument: boolean = false;
-
-showDocumentFun() {
-  this.showDocument = true;
-}
-
-
-//account form
-showAccountCreate:boolean=false;
-showAccountCreateFun()
-{
-this.showAccountCreate=true;
-}
-
-
-//show transaction interface
-showTransaction=false
-showTransactionFun()
-{
-this.showTransaction=true
-}
-
-
-
-
-
 
 
 }

@@ -19,6 +19,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { CustomerRegisterComponent } from './Customer/customer-register/customer-register.component';
 import { CustomerDocumentComponent } from './Customer/customer-document/customer-document.component';
+import { CustomertTransactionComponent } from './Customer/customert-transaction/customert-transaction.component';
+import { CustomerPassbookComponent } from './Customer/customer-passbook/customer-passbook.component';
+import { CustomerQueryComponent } from './Customer/customer-query/customer-query.component';
 
 
 
@@ -32,6 +35,9 @@ import { CustomerDocumentComponent } from './Customer/customer-document/customer
     CutomerDashboardComponent,
     CustomerRegisterComponent,
     CustomerDocumentComponent,
+    CustomertTransactionComponent,
+    CustomerPassbookComponent,
+    CustomerQueryComponent,
 
   ],
   imports: [

@@ -7,6 +7,7 @@ import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard
 import { CutomerDashboardComponent } from './Customer/cutomer-dashboard/cutomer-dashboard.component';
 import { CustomerRegisterComponent } from './Customer/customer-register/customer-register.component';
 import { CustomerDocumentComponent } from './Customer/customer-document/customer-document.component';
+import { CustomertTransactionComponent } from './Customer/customert-transaction/customert-transaction.component';
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:"admin",component:AdminDashboardComponent},
   {path:"customer",component:CutomerDashboardComponent},
   {path:"customerRegister",component:CustomerRegisterComponent},
-  {path:"customerDocument",component:CustomerDocumentComponent}
+  {path:"customerDocument",component:CustomerDocumentComponent},
+  {path:"customerTransaction",component:CustomertTransactionComponent}
   
 ];
 

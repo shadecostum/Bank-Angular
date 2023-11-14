@@ -13,49 +13,46 @@ export class CustomerDocumentComponent {
 
   customerDocumentForm=new FormGroup(
     {
-      documentType:new FormControl('',Validators.required),
-      documentFile: new FormControl('', Validators.required),
-      customerId:new FormControl('',Validators.required)
+      DocumentType:new FormControl('',Validators.required),
+      DocumentFile: new FormControl('', Validators.required),
+      CustomerId:new FormControl('',Validators.required)
     }
   )
 
   get TypeValidator()
   {
-    return this.customerDocumentForm.get('documentType')
+    return this.customerDocumentForm.get('DocumentType')
   }
   get FileValidator()
   {
-    return this.customerDocumentForm.get('documentFile')
+    return this.customerDocumentForm.get('DocumentFile')
   }
  
   get customerValidator()
   {
-    return this.customerDocumentForm.get('customerId')
+    return this.customerDocumentForm.get('CustomerId')
   }
 
 
 constructor(private auth:DocumentServiceService){}
 
+submitData(formData: any) {
+  formData.append('DocumentType', this.customerDocumentForm.value.DocumentType);
+  formData.append('DocumentFile', this.customerDocumentForm.value.DocumentFile);
+  formData.append('CustomerId', this.customerDocumentForm.value.CustomerId);
 
-  submitData(formData: any) {
-    console.log(formData);
-    
-    this.auth.uploadDocument(formData).subscribe(
-      {
-        next:(data)=>
-        {
-          console.log(data);
-          
-        },
-        error:(err:HttpErrorResponse)=>
-        {
-          console.log(err);
-          console.log("error here");
-          
-          
-        }
+  this.auth.uploadDocument(formData).subscribe(
+    {
+      next: (data) => {
+        console.log(data);
+      },
+      error: (err: HttpErrorResponse) => {
+        console.log(err);
+        console.log("error here");
       }
-    )
-  }
+    }
+  );
+}
+
 
 }
