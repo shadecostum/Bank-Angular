@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,16 @@ import { Injectable } from '@angular/core';
 })
 export class DocumentServiceService {
 
-  constructor() { }
+
+  documentUploadUrl="https://localhost:7078/api/Doc"
+
+  constructor(private http:HttpClient) { }
+
+
+public uploadDocument(data:any)
+{
+  return this.http.post(this.documentUploadUrl,data)
+}
+
+
 }

@@ -13,6 +13,14 @@ import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 import { CutomerDashboardComponent } from './Customer/cutomer-dashboard/cutomer-dashboard.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
+import { FormsModule } from '@angular/forms';
+import { CustomerRegisterComponent } from './Customer/customer-register/customer-register.component';
+import { CustomerDocumentComponent } from './Customer/customer-document/customer-document.component';
+
+
 
 @NgModule({
   declarations: [
@@ -21,12 +29,15 @@ import { CutomerDashboardComponent } from './Customer/cutomer-dashboard/cutomer-
     SignupPageComponent,
     WeatherComponent,
     AdminDashboardComponent,
-    CutomerDashboardComponent
+    CutomerDashboardComponent,
+    CustomerRegisterComponent,
+    CustomerDocumentComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,ReactiveFormsModule,HttpClientModule
+    NgbModule,ReactiveFormsModule,HttpClientModule, FontAwesomeModule,FormsModule
   ],
   providers: [
     {

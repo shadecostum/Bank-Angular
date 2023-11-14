@@ -1,1 +1,244 @@
-<p>cutomer-dashboard works!</p>
+
+<header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-success">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4  ">
+          <a
+            href="/admin"
+            class="list-group-item list-group-item-action py-2 ripple"
+            aria-current="true"
+          >
+         <span>  Customer dashboard</span>
+          </a>
+          <a routerLink="/customerRegister" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
+          ><i class="fas fa-lock fa-fw me-3"></i><span>Create Account</span></a
+        >
+          <a routerLink="/admin" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
+            ><i class="fas fa-lock fa-fw me-3"></i><span>Transaction</span></a
+          >
+          <a routerLink="/customerDocument" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
+            ><i class="fas fa-chart-line fa-fw me-3"></i><span>Upload Documnets</span></a
+          >
+          <a routerLink="/customerDocument" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2">
+            <i class="fas fa-chart-pie fa-fw me-3"></i><span>Fixed Deposite</span>
+          </a>
+          <a routerLink="/admin" routerLinkActive="active"  class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
+            ><i class="fas fa-chart-bar fa-fw me-3"></i><span>View All Transactions</span></a
+          >
+        
+        
+        </div>
+      </div>
+    </nav>
+    <!-- Sidebar -->
+  
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-body-secondary fixed-top">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#sidebarMenu"
+          aria-controls="sidebarMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+  
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+            height="25"
+            alt="MDB Logo"
+            loading="lazy"
+          />
+        </a>
+        <!-- Search form -->
+      
+        <!-- Right links -->
+        <ul class="navbar-nav ms-auto d-flex flex-row">
+          <!-- Notification dropdown -->
+         
+  
+         
+  
+        
+          <!-- Avatar -->
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp"
+                class="rounded-circle"
+                height="22"
+                alt="Avatar"
+                loading="lazy"
+              />
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdownMenuLink"
+            >
+              <li>
+                <a class="dropdown-item" href="#">My profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Settings</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Logout</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+  </header>
+  <!--Main Navigation-->
+  
+  <!--Main layout-->
+  <main style="margin-top: 58px;">
+  
+   
+    <div class="row row-cols-1 row-cols-md-4 g-4 mt-2">
+      <div class="col" (click)="viewPassbook(1)">
+        <div class="card h-100">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+          <div class="card-body">
+            <h5 class="card-title">Passbook </h5>
+            <p class="card-text">
+              You can view passbook here
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+          <div class="card-body">
+            <h5 class="card-title">Account Statements</h5>
+            <p class="card-text">
+             View Account statments
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col" (click)="viewQueryForm()">
+        <div class="card h-100">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+          <div class="card-body">
+            <h5 class="card-title">Ask Query</h5>
+            <p class="card-text">You can view query replies from admin</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+          <div class="card-body">
+            <h5 class="card-title">Intrest Calculator</h5>
+            <p class="card-text">
+             You can Calculate Intrest of your FD account
+            </p>
+          </div>
+        </div>
+      </div>
+   
+      <!-- Repeat similar structures for other cards -->
+    </div>
+   
+    <!-- passbook.component.html -->
+    <div class="container mt-4 bg-primary" *ngIf="showPassbook">
+      <div class="row">
+        <!-- Left Column with Image -->
+        <div class="col-md-4 mt-5" style="height: fit-content;">
+          <img src="../../../assets/avtar.png" class="img-fluid" alt="Customer Image">
+        </div>
+    
+        <!-- Right Column with Passbook Details -->
+        <div class="col-md-8">
+          <h2>Passbook Details</h2>
+          <div class="mb-3">
+            <label class="form-label">Customer ID:</label>
+            <input type="text" class="form-control" value="{{ passbook.customerId }}" readonly>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">First Name:</label>
+            <input type="text" class="form-control" value="{{ passbook.firstName }}" readonly>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Last Name:</label>
+            <input type="text" class="form-control" value="{{ passbook.lastName }}" readonly>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email:</label>
+            <input type="email" class="form-control" value="{{ passbook.email }}" readonly>
+          </div>
+    
+          <!-- Display Accounts -->
+          <div *ngFor="let account of passbook.accounts" class="mb-3">
+            <h4>Account {{ account.accountNumber }}</h4>
+            <div class="mb-2">
+              <label class="form-label">Account Type:</label>
+              <input type="text" class="form-control" value="{{ account.accountType }}" readonly>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Opening Date:</label>
+              <input type="text" class="form-control" value="{{ account.openningDate | date:'medium' }}" readonly>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Account Balance:</label>
+              <input type="text" class="form-control" value="{{ account.accountBalance | currency }}" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6 mx-auto mt-4" *ngIf="showQuery" style="border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
+      <h2 class="text-center">Reply to Query</h2>
+      <ngb-alert *ngIf="queryResponce" >
+         Query Request Added successfully <button type="button" class="btn btn-success" (click)="reset()">Clear</button> 
+      </ngb-alert>
+
+
+      <form [formGroup]="QueryForm" (ngSubmit)="onSubmit(QueryForm.value)">
+        <div class="mb-3">
+          <span *ngIf="queryValidator && queryValidator.invalid && queryValidator.touched" style="color: red;">
+            Required Query Text
+          </span>
+          <label for="replyMessage" class="form-label">Query Message:</label>
+          <textarea class="form-control" formControlName="queryText"></textarea>
+        </div>
+        <div class="mb-3">
+          <span *ngIf="cutomerIdValidator && cutomerIdValidator.invalid && cutomerIdValidator.touched" style="color: red;">
+            Required Customer ID
+          </span>
+          <label for="customerId" class="form-label">Customer ID:</label>
+          <input type="number" class="form-control" formControlName="customerId">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="QueryForm.invalid">Submit</button>
+      </form>
+    </div>
+    
+    
+    
+    
+    
+    
+  </main>
+  <!--Main layout-->

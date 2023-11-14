@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class TransactionServiceService {
 
-  constructor() { }
+  dateFilterUrl="https://localhost:7078/api/Transaction"
+  constructor(private http:HttpClient) { }
+
+
+  getTransactionByDate(data:any)
+  {
+    return this.http.get(this.dateFilterUrl+"/"+data)
+  }
 }
