@@ -22,6 +22,10 @@ import { CustomerDocumentComponent } from './Customer/customer-document/customer
 import { CustomertTransactionComponent } from './Customer/customert-transaction/customert-transaction.component';
 import { CustomerPassbookComponent } from './Customer/customer-passbook/customer-passbook.component';
 import { CustomerQueryComponent } from './Customer/customer-query/customer-query.component';
+import { AdminAccountRequestComponent } from './Admin/admin-account-request/admin-account-request.component';
+import { RequestAccountComponent } from './Customer/request-account/request-account.component';
+import { AccountFilterComponent } from './Admin/account-filter/account-filter.component';
+import { AccountStatementComponent } from './Customer/account-statement/account-statement.component';
 
 
 
@@ -38,6 +42,10 @@ import { CustomerQueryComponent } from './Customer/customer-query/customer-query
     CustomertTransactionComponent,
     CustomerPassbookComponent,
     CustomerQueryComponent,
+    AdminAccountRequestComponent,
+    RequestAccountComponent,
+    AccountFilterComponent,
+    AccountStatementComponent,
 
   ],
   imports: [

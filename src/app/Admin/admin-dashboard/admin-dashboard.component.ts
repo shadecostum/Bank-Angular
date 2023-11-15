@@ -85,6 +85,9 @@ noQueryAdded=false;
     }
    )
   }
+
+
+
   formShow=false;
   feedbackMessage:any;
   generateReplyForm()
@@ -135,6 +138,22 @@ onSubmit(formData:any) {
     }
     );
   }
+
+
+  //accounrequest
+showAccountRequest=false
+  handleAccountRequest()
+  {
+this.showAccountRequest=true;
+  }
+
+  //
+  showAccountTransactions=false 
+  AccountTransactionFilter()
+  {
+    this.showAccountTransactions=true; 
+  }
+
 
 
 }

@@ -166,35 +166,35 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col" (click)="handleAccountRequest()">
       <div class="card h-100">
         <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
         <div class="card-body">
-          <h5 class="card-title">Account Requests</h5>
+          <h5 class="card-title">View Account Requests</h5>
           <p class="card-text">
-            You can view Customer Account creating  request here
+            You can view the Customer Applied Request to admin
           </p>
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col" (click)="AccountTransactionFilter()">
       <div class="card h-100">
         <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
         <div class="card-body">
-          <h5 class="card-title">search Account </h5>
+          <h5 class="card-title">Filter Customer Account Transactions</h5>
           <p class="card-text">
-           You can Search account
+            admin can filter the customer transaction by Account Number
           </p>
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col" (click)="AccountTransactionFilter()">
       <div class="card h-100">
         <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
         <div class="card-body">
-          <h5 class="card-title">Set Intrest</h5>
+          <h5 class="card-title">Set Interest Rate</h5>
           <p class="card-text">
-           You can edit the Intrest rate of the customer
+            admin can change the Intrest Rate
           </p>
         </div>
       </div>
@@ -253,7 +253,9 @@
   </div>
   
   
-  
+  <div *ngIf="showAccountTransactions">
+    <app-account-filter></app-account-filter>
+  </div>
   
   
   

@@ -5,7 +5,7 @@
       <div class="position-sticky">
         <div class="list-group list-group-flush mx-3 mt-4  ">
           <a
-            href="/admin"
+            href="/customer"
             class="list-group-item list-group-item-action py-2 ripple"
             aria-current="true"
           >
@@ -14,6 +14,9 @@
           <a  routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
           (click)="showAccountCreateFun()"><i class="fas fa-lock fa-fw me-3"></i><span>Create Account</span></a
         >
+        <a  routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
+        (click)="showAccountRequestFun()"><i class="fas fa-lock fa-fw me-3"></i><span>Request Account  </span></a
+      >
           <a routerLinkActive="active"
            class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
            (click)="showTransactionFun()">
@@ -130,13 +133,13 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col" (click)="viewAccountStatement()">
         <div class="card h-100">
           <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
           <div class="card-body">
-            <h5 class="card-title">Account Statements</h5>
+            <h5 class="card-title">Account Statement</h5>
             <p class="card-text">
-             View Account statments
+            view Your Account Statement
             </p>
           </div>
         </div>
@@ -202,17 +205,25 @@
             </div>
             <div class="mb-2">
               <label class="form-label">Opening Date:</label>
-              <input type="text" class="form-control" value="{{ account.openningDate | date:'medium' }}" readonly>
+              <input type="text" class="form-control" value="{{ account.openningDate | date:'short' }}" readonly>
             </div>
             <div class="mb-2">
               <label class="form-label">Account Balance:</label>
-              <input type="text" class="form-control" value="{{ account.accountBalance | currency }}" readonly>
+              <input type="text" class="form-control" value="{{ account.accountBalance|  currency:'INR' }}" readonly>
             </div>
           </div>
         </div>
       </div>
     </div>
     
+    <div *ngIf="showAccountForm">
+      <app-request-account></app-request-account>
+
+    </div>
+
+    <div *ngIf="showAccountStatment">
+      <app-account-statement></app-account-statement>
+    </div>
    
 
     <div *ngIf="showDocument">

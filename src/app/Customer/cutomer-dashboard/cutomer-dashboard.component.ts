@@ -50,6 +50,21 @@ this.auth.ViewPassBook(id).subscribe(
 }
 
 
+//show Account statment
+showAccountStatment=false
+
+viewAccountStatement()
+{
+ this.showAccountStatment=true
+
+ this.showQuery=false
+this.showDocument = false;
+this.showAccountCreate=false;
+this.showTransaction=false;
+this.showAccountForm=false;
+this.showPassbook=false;
+}
+
 
 
 //ask query form
@@ -58,6 +73,13 @@ showQuery=false;
 viewQueryForm()
 {
 this.showQuery=true
+
+this.showAccountStatment=false;
+this.showDocument = false;
+this.showAccountCreate=false;
+this.showTransaction=false;
+this.showAccountForm=false;
+this.showPassbook=false;
 }
 
 
@@ -67,6 +89,13 @@ showDocument: boolean = false;
 
 showDocumentFun() {
   this.showDocument = true;
+
+  this.showAccountStatment=false
+  this.showQuery=false
+ this.showAccountCreate=false;
+ this.showTransaction=false;
+ this.showAccountForm=false;
+ this.showPassbook=false;
 }
 
 
@@ -74,7 +103,16 @@ showDocumentFun() {
 showAccountCreate:boolean=false;
 showAccountCreateFun()
 {
+
 this.showAccountCreate=true;
+
+  this.showDocument = false;
+  this.showQuery=false
+  this.showTransaction=false;
+  this.showAccountForm=false;
+  this.showPassbook=false;
+
+
 }
 
 
@@ -83,8 +121,29 @@ showTransaction=false
 showTransactionFun()
 {
 this.showTransaction=true
+
+  this.showAccountCreate=false;
+  this.showDocument = false;
+  this.showQuery=false
+  this.showAccountCreate=false;
+  this.showAccountForm=false;
+  this.showPassbook=false;
 }
 
+
+//Account type requesting from shoeing function
+showAccountForm=false;
+showAccountRequestFun()
+{
+this.showAccountForm=true;
+
+  this.showTransaction=false
+  this.showAccountCreate=false;
+  this.showDocument = false;
+  this.showQuery=false
+  this.showAccountCreate=false;
+  this.showPassbook=false;
+}
 
 
 
