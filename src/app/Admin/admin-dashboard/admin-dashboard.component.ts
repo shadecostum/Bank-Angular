@@ -88,12 +88,9 @@ noQueryAdded=false;
 
 
 
-  formShow=false;
+
   feedbackMessage:any;
-  generateReplyForm()
-  {
-this.formShow=true;
-  }
+
 
 //reply form
 
@@ -140,11 +137,23 @@ onSubmit(formData:any) {
   }
 
 
+  formShow=false;
+  generateReplyForm()
+  {
+this.formShow=true;
+this. showCustomerAll=false
+this.showAccountTransactions=false 
+this.showAccountRequest=false;
+  }
+
   //accounrequest
 showAccountRequest=false
   handleAccountRequest()
   {
 this.showAccountRequest=true;
+this. showCustomerAll=false
+this.showAccountTransactions=false 
+this.formShow=false;
   }
 
   //
@@ -152,8 +161,21 @@ this.showAccountRequest=true;
   AccountTransactionFilter()
   {
     this.showAccountTransactions=true; 
+    this. showCustomerAll=false
+    this.showAccountRequest=false;
+    this.formShow=false;
   }
 
+  //showCustomerAll
+
+showCustomerAll=false
+showCustomerFun()
+{
+ this. showCustomerAll=true
+ this.showAccountRequest=false;
+ this.showAccountTransactions=false 
+ this.formShow=false;
+}
 
 
 }

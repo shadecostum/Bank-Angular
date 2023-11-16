@@ -30,6 +30,7 @@ get passwordValidator()
 }
 
 token:any='';
+headers:any;
 constructor(private auth:UserServiceService,private route:Router){}
 
   submitData(data:any)
@@ -37,14 +38,30 @@ constructor(private auth:UserServiceService,private route:Router){}
 
     this.auth.login(data).subscribe(
       {
-        next:(data)=>
+        next:(response:any)=>
       {
-    
-        console.log(data);
-        this.token=data;
-        localStorage.setItem("token",this.token.actualToken)
+        const roleName = response.message;
+          
+
+    //   this.headers=response.headers.get('jwt');
+    //   this.headers=JSON.parse(this.headers)
+
+    //     console.log(roleName);
+    //    console.log(this.headers);
         
-         this.route.navigateByUrl("/weather")
+    //  localStorage.setItem("token",this.headers)
+        
+     
+         if (roleName==="Admin") {
+
+          var token="eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWVzc2kiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTcwMDU2Mjk5NX0.ajJdCSLOii1_jnhPyDgQrKoAiSiH6_glFTdmsrnmBr1pdYtXG06cbmHd8a1gciM1Za_LjguhB4GrwTyZ7wEbPQ"
+          localStorage.setItem("token",token)
+          this.route.navigateByUrl('/admin');
+        } else if (roleName === 'Customer') {
+          var tokenCustomer="eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRGhvbmkiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImV4cCI6MTcwMDU2NTQzOH0.fPI8jeIN7I0TlJsBd9s7r5_MZLGkH1VYDEDXHktUpyaGNaxcl2x9pJWfqwg4fC1O51JG93VBXGGavUTS1gOqyA" 
+          localStorage.setItem("token",tokenCustomer)
+          this.route.navigateByUrl('/customer');
+        } 
       },
       error:(errorResponce:HttpErrorResponse)=>
       {

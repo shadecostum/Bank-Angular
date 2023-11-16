@@ -1,47 +1,63 @@
-    <!-- passbook.component.html -->
-    <div class="container mt-4 bg-primary" *ngIf="showPassbook">
-        <div class="row">
-          <!-- Left Column with Image -->
-          <div class="col-md-4 mt-5" style="height: fit-content;">
-            <img src="../../../assets/avtar.png" class="img-fluid" alt="Customer Image">
-          </div>
+
       
-          <!-- Right Column with Passbook Details -->
-          <div class="col-md-8">
-            <h2>Passbook Details</h2>
-            <div class="mb-3">
-              <label class="form-label">Customer ID:</label>
-              <input type="text" class="form-control" value="{{ passbook.customerId }}" readonly>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">First Name:</label>
-              <input type="text" class="form-control" value="{{ passbook.firstName }}" readonly>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Last Name:</label>
-              <input type="text" class="form-control" value="{{ passbook.lastName }}" readonly>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Email:</label>
-              <input type="email" class="form-control" value="{{ passbook.email }}" readonly>
-            </div>
-      
-            <!-- Display Accounts -->
-            <div *ngFor="let account of passbook.accounts" class="mb-3">
-              <h4>Account {{ account.accountNumber }}</h4>
-              <div class="mb-2">
-                <label class="form-label">Account Type:</label>
-                <input type="text" class="form-control" value="{{ account.accountType }}" readonly>
-              </div>
-              <div class="mb-2">
-                <label class="form-label">Opening Date:</label>
-                <input type="text" class="form-control" value="{{ account.openningDate | date:'medium' }}" readonly>
-              </div>
-              <div class="mb-2">
-                <label class="form-label">Account Balance:</label>
-                <input type="text" class="form-control" value="{{ account.accountBalance | currency }}" readonly>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="col-md-4 d-flex align-items-start">
+        <input type="number" [(ngModel)]="FilterData" class="form-control" placeholder="Enter AccountNumber Filter transaction  ">
+        <button (click)="AccountSatement()" class="btn btn-success">Account Number </button>
       </div>
+    
+    
+    <div *ngIf="resultcondition">
+        <div class="container mt-4">
+            <h2>Account Information</h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Account Number</th>
+                  <th>Account Type</th>
+                  <th>Opening Date</th>
+                  <th>Account Balance</th>
+                  <th>Customer Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let account of accounts">
+                  <td>{{ account.accountNumber }}</td>
+                  <td>{{ account.accountType }}</td>
+                  <td>{{ account.openningDate | date:'short' }}</td>
+                  <td>{{ account.accountBalance |  currency:'INR' }}</td>
+                  <td>{{ account.customer.firstName }} {{ account.customer.lastName }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="container mt-4">
+            <h2>Transaction Details</h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>Transaction Type</th>
+                  <th>Transaction Amount</th>
+                  <th>Description</th>
+                  <th>Transaction Date</th>
+                  <th>State</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let account of accounts">
+                  <tr *ngFor="let transaction of account.transactions">
+                    <td>{{ transaction.transactionId }}</td>
+                    <td>{{ transaction.transactionType }}</td>
+                    <td>{{ transaction.transactionAmount |  currency:'INR' }}</td>
+                    <td>{{ transaction.description }}</td>
+                    <td>{{ transaction.transactionDate | date:'short' }}</td>
+                    <td>{{ transaction.state }}</td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+          
+    </div>
+    

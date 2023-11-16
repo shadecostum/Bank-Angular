@@ -25,30 +25,10 @@ export class CutomerDashboardComponent {
 passbook:any;
 showPassbook=false;
 //view Pass book
-viewPassbook(id:any)
+viewPassbook()
 {
-
-this.auth.ViewPassBook(id).subscribe(
-  {
-    next:(data)=>
-    {
-      if(data!=null)
-      {this.showPassbook=true
-      this.passbook=data;
-      console.log(data);
-      }
-    },
-    error:(er:HttpErrorResponse)=>
-    {
-      console.log(er);
-      console.log("error here");
-      
-      
-    }
-  }
-)
+ this.showPassbook=true;
 }
-
 
 //show Account statment
 showAccountStatment=false

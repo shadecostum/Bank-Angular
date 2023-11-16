@@ -11,7 +11,7 @@
         >
         <fa-icon [icon]="faCoffee"></fa-icon><span>  Admin dashboard</span>
         </a>
-        <a routerLink="/admin" routerLinkActive="active"class="list-group-item list-group-item-action py-2 ripple mt-lg-2">
+        <a routerLinkActive="active"class="list-group-item list-group-item-action py-2 ripple mt-lg-2" (click)="showCustomerFun()">
           <i  class="fab fa-mdb"><span>Customers</span></i>
         </a>
         <a routerLink="/admin" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
@@ -257,6 +257,9 @@
     <app-account-filter></app-account-filter>
   </div>
   
+  <div *ngIf="showCustomerAll">
+<app-update-customer></app-update-customer>
+  </div>
   
   
   

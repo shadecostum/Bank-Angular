@@ -5,7 +5,7 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
@@ -20,6 +20,6 @@ export class JwtInterceptor implements HttpInterceptor {
     ('Authorization','bearer '+localToken)})
 
 
-    return next.handle(request);
+    return next.handle(request)
   }
 }

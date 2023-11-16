@@ -8,10 +8,17 @@ export class CustomerServiceService {
 
 customerRegisterUrl="https://localhost:7078/api/Customer/customerRegister";
 
+showAllCustomerUrl="https://localhost:7078/api/Customer";
+
+getCustomerByIdUrl="https://localhost:7078/api/Customer";
 
 passbookViewUrl="https://localhost:7078/api/Customer/passbook?id";
 
-askQueryUrl="https://localhost:7078/api/Query/customerAskQuery"
+askQueryUrl="https://localhost:7078/api/Query/customerAskQuery";
+
+paginationUrl="";
+
+twoDateFilterUrl="https://localhost:7078/api/Transaction/DateFilter"
 
 
   constructor(private http:HttpClient) { }
@@ -29,6 +36,27 @@ public ViewPassBook(id:any)
 public AskCustomerQuery(data:any)
 {
   return this.http.post(this.askQueryUrl,data)
+}
+
+public SHowAllCustomer()
+{
+  return this.http.get(this.showAllCustomerUrl)
+}
+public getCustomerById(id:any)
+{
+  return this.http.get(this.getCustomerByIdUrl+"/"+id)
+}
+
+
+public paginationBank(pgNo ?:number,pgSize?:number)
+{
+return this.http.get(this.paginationUrl+ "?PageNumber=" +pgNo + "&PageSize=" +pgSize ,
+{ observe: 'response' })
+}
+
+public twoDateFilter(data:any)
+{
+  return this.http.get(this.twoDateFilterUrl,data)
 }
 
 

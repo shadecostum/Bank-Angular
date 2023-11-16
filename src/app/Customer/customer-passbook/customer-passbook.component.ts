@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AccountServiceService } from 'src/app/service/account-service.service';
 import { CustomerServiceService } from 'src/app/service/customer-service.service';
 
 @Component({
@@ -9,39 +10,37 @@ import { CustomerServiceService } from 'src/app/service/customer-service.service
   styleUrls: ['./customer-passbook.component.css']
 })
 export class CustomerPassbookComponent {
-  constructor(private auth:CustomerServiceService,private routeSet:Router)
-  {
-    
-  }
-  
 
-  reset(){location.reload()}
-passbook:any;
-showPassbook=false;
-//view Pass book
-viewPassbook(id:any)
+ 
+constructor(private auth:AccountServiceService)
 {
 
-this.auth.ViewPassBook(id).subscribe(
+}
+
+accounts:any[]=[]
+FilterData:any
+resultcondition=false
+resultArray=false
+AccountSatement()
+{this.auth.AccountFilter(this.FilterData).subscribe(
   {
-    next:(data)=>
+    next:(data:any)=>
     {
-      if(data!=null)
-      {this.showPassbook=true
-      this.passbook=data;
-      console.log(data);
+      if (data === null || (typeof data === 'object' && Object.keys(data).length === 0)) {
+        this.resultcondition = false;
+        this.resultArray=true;
+
+      } else if (Array.isArray(data)) {
+        this.accounts = data;
+        console.log(data);
+        this.resultcondition = true;
+      } else {
+        console.error("Unexpected data format:", data);
       }
-    },
-    error:(er:HttpErrorResponse)=>
-    {
-      console.log(er);
-      console.log("error here");
-      
-      
     }
   }
 )
-}
 
+}
 
 }

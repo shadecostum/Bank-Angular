@@ -26,6 +26,11 @@ import { AdminAccountRequestComponent } from './Admin/admin-account-request/admi
 import { RequestAccountComponent } from './Customer/request-account/request-account.component';
 import { AccountFilterComponent } from './Admin/account-filter/account-filter.component';
 import { AccountStatementComponent } from './Customer/account-statement/account-statement.component';
+import { UpdateCustomerComponent } from './Admin/update-customer/update-customer.component';
+import { DeleteCustomerComponent } from './Admin/delete-customer/delete-customer.component';
+import { ShowCustomerComponent } from './Admin/show-customer/show-customer.component';
+import { PaginationComponent } from './Customer/pagination/pagination.component';
+import { TwoDateFilterComponent } from './Customer/two-date-filter/two-date-filter.component';
 
 
 
@@ -46,6 +51,11 @@ import { AccountStatementComponent } from './Customer/account-statement/account-
     RequestAccountComponent,
     AccountFilterComponent,
     AccountStatementComponent,
+    UpdateCustomerComponent,
+    DeleteCustomerComponent,
+    ShowCustomerComponent,
+    PaginationComponent,
+    TwoDateFilterComponent,
 
   ],
   imports: [

@@ -14,10 +14,6 @@ import { DocumentServiceService } from 'src/app/service/document-service.service
 
 
 export class CustomerDocumentComponent {
-
-
-
- 
     customerDocumentForm = new FormGroup({
       DocumentType: new FormControl('', Validators.required),
       DocumentFile: new FormControl(null, Validators.required), // Note: Use null for file input
