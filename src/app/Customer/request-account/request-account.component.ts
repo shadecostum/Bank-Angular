@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AccountServiceService } from 'src/app/service/account-service.service';
 
@@ -10,7 +10,9 @@ import { AccountServiceService } from 'src/app/service/account-service.service';
 })
 export class RequestAccountComponent {
 
-
+ @Input () data:any;
+ localValue: any;
+ 
   accountForm = new FormGroup({
     accountType: new FormControl('', Validators.required),
     accountBalance: new FormControl('',[Validators.required,Validators.min(0)]),
@@ -32,7 +34,10 @@ get customerIdValidator()
 }
 
 
-constructor(private auth:AccountServiceService){}
+constructor(private auth:AccountServiceService){
+  this.localValue = this.data;
+}
+
 
 
 onSubmit(data:any)
