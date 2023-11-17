@@ -5,7 +5,7 @@
       <div class="position-sticky">
         <div class="list-group list-group-flush mx-3 mt-4  ">
           <a
-            href="/customer"
+            href="/customer" 
             class="list-group-item list-group-item-action py-2 ripple"
             aria-current="true"
           >
@@ -28,7 +28,7 @@
           <span>Upload Documents</span>
        </a>
           <a routerLink="/customerDocument" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2">
-            <i class="fas fa-chart-pie fa-fw me-3"></i><span>Fixed Deposite</span>
+            <span>Fixed Deposite</span>
           </a>
           <a routerLink="/admin" routerLinkActive="active"  class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
             ><i class="fas fa-chart-bar fa-fw me-3"></i><span>View All Transactions</span></a
@@ -41,7 +41,7 @@
     <!-- Sidebar -->
   
     <!-- Navbar -->
-    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-primary-subtle fixed-top">
       <!-- Container wrapper -->
       <div class="container-fluid">
         <!-- Toggle button -->
@@ -60,14 +60,14 @@
         <!-- Brand -->
         <a class="navbar-brand" href="#">
           <img
-            src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+          src="../../../assets/bankk.jpg"
             height="25"
             alt="MDB Logo"
             loading="lazy"
           />
         </a>
         <!-- Search form -->
-      
+   
         <!-- Right links -->
         <ul class="navbar-nav ms-auto d-flex flex-row">
           <!-- Notification dropdown -->
@@ -124,7 +124,7 @@
     <div class="row row-cols-1 row-cols-md-4 g-4 mt-2">
       <div class="col" (click)="viewPassbook()">
         <div class="card h-100">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+          <img src="../../../assets/passbook.jpg" class="card-img-top" alt="Hollywood Sign on The Hill"/>
           <div class="card-body">
             <h5 class="card-title">Passbook </h5>
             <p class="card-text">
@@ -135,7 +135,7 @@
       </div>
       <div class="col" (click)="viewAccountStatement()">
         <div class="card h-100">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+          <img src="../../../assets/statment.jpg" class="card-img-top" alt="Hollywood Sign on The Hill"/>
           <div class="card-body">
             <h5 class="card-title">Account Statement</h5>
             <p class="card-text">
@@ -146,7 +146,7 @@
       </div>
       <div class="col" (click)="viewQueryForm()">
         <div class="card h-100">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+          <img src="../../../assets/query.jpg" class="card-img-top" alt="Hollywood Sign on The Hill"/>
           <div class="card-body">
             <h5 class="card-title">Ask Query</h5>
             <p class="card-text">You can view query replies from admin</p>
@@ -155,7 +155,7 @@
       </div>
       <div class="col">
         <div class="card h-100">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+          <img src="../../../assets/calculator.jpg" class="card-img-top" alt="Hollywood Sign on The Hill"/>
           <div class="card-body">
             <h5 class="card-title">Interest Calculator</h5>
             <p class="card-text">
@@ -201,7 +201,7 @@
       <app-customert-transaction></app-customert-transaction>
     </div>
     
-    
-    
+    <i class="fas fa-chart-pie fa-fw me-3 "> <h1>  Welcome{{userName}}</h1></i> 
+  
   </main>
   <!--Main layout-->

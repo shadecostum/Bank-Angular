@@ -56,7 +56,8 @@ return this.http.get(this.paginationUrl+ "?PageNumber=" +pgNo + "&PageSize=" +pg
 
 public twoDateFilter(data:any)
 {
-  return this.http.get(this.twoDateFilterUrl,data)
+  
+  return this.http.post(this.twoDateFilterUrl,data)
 }
 
 

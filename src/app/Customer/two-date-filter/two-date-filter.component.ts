@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { CustomerServiceService } from 'src/app/service/customer-service.service';
 
 @Component({
@@ -9,36 +10,28 @@ import { CustomerServiceService } from 'src/app/service/customer-service.service
 })
 export class TwoDateFilterComponent {
 
-  
-  result: any[] = [];
-  resultcondition = false;
-  dateData: any;
-  resultArray=false;
-
+  dateFilterForm = new FormGroup({
+    startDate: new FormControl(''),
+    endDate: new FormControl('')
+  });
+  transactions: any;
   constructor(private auth:CustomerServiceService){}
-  
-  onSubmit() {
-    this.auth.twoDateFilter(this.dateData).subscribe(
+  onSubmit(data:any)
+  {
+    this.auth.twoDateFilter(data).subscribe(
       {
-        next: (data: any) => {
-          if (data === null || (typeof data === 'object' && Object.keys(data).length === 0)) {
-            this.resultcondition = false;
-            this.resultArray=true;
-
-          } else if (Array.isArray(data)) {
-            this.result = data;
-            console.log(data);
-            this.resultcondition = true;
-          } else {
-            console.error("Unexpected data format:", data);
-          }
+        next:(data)=>
+        {
+          console.log(data);
+          this.transactions =data;
         },
-        error: (er: HttpErrorResponse) => {
-          console.log(er);
+        error:(err:HttpErrorResponse)=>
+        {
+          console.log(err);
+          
         }
       }
-    );
+    )
   }
-  
 
 }

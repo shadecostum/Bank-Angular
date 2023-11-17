@@ -14,8 +14,8 @@ constructor(private http:HttpClient){}
 
   login(data:any)
   {
-    return this.http.post(this.url,data)
-   // { observe: 'response' }
+    return this.http.post(this.url,data,{ observe: 'response' })
+   
   }
 
 

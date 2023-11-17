@@ -144,6 +144,7 @@ this.formShow=true;
 this. showCustomerAll=false
 this.showAccountTransactions=false 
 this.showAccountRequest=false;
+this.showQueryResult=false;
   }
 
   //accounrequest
@@ -154,6 +155,7 @@ this.showAccountRequest=true;
 this. showCustomerAll=false
 this.showAccountTransactions=false 
 this.formShow=false;
+this.showQueryResult=false;
   }
 
   //
@@ -164,6 +166,7 @@ this.formShow=false;
     this. showCustomerAll=false
     this.showAccountRequest=false;
     this.formShow=false;
+   this.showQueryResult=false;
   }
 
   //showCustomerAll
@@ -175,6 +178,7 @@ showCustomerFun()
  this.showAccountRequest=false;
  this.showAccountTransactions=false 
  this.formShow=false;
+ this.showQueryResult=false;
 }
 
 

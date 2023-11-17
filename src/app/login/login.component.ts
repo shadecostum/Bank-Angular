@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../service/user-service.service';
 import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { DataServiceService } from '../service/data-service.service';
+//import {jwt_decod} as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -31,35 +33,49 @@ get passwordValidator()
 
 token:any='';
 headers:any;
-constructor(private auth:UserServiceService,private route:Router){}
+user:any;
+constructor(private auth:UserServiceService,private route:Router,private datas:DataServiceService){}
 
   submitData(data:any)
   {
 
     this.auth.login(data).subscribe(
       {
-        next:(response:any)=>
+        //:HttpResponse<any>
+        next:(response)=>
       {
-        const roleName = response.message;
+        //const roleName = response.body.message;
+       
+  
+       // console.log('roleName', roleName);
+      
           
 
-    //   this.headers=response.headers.get('jwt');
-    //   this.headers=JSON.parse(this.headers)
+       this.headers=response.headers.get('jwt');
+       this.headers=JSON.parse(this.headers)
 
-    //     console.log(roleName);
-    //    console.log(this.headers);
-        
-    //  localStorage.setItem("token",this.headers)
+       this.user=response.body;
+
+       console.log(this.headers);
+       localStorage.setItem("token",this.headers)
+
+       //store data service values
+       this.datas.userId=this.user.userId
+       this.datas.userName=this.user.userName
+
+       console.log("userId",this.datas.userId);
+       console.log("userName",this.datas.userName);
+       console.log("roleName",this.user.roleName);
+       
+       
         
      
-         if (roleName==="Admin") {
+         if (this.user.roleName==="Admin") {
 
-          var token="eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWVzc2kiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTcwMDU2Mjk5NX0.ajJdCSLOii1_jnhPyDgQrKoAiSiH6_glFTdmsrnmBr1pdYtXG06cbmHd8a1gciM1Za_LjguhB4GrwTyZ7wEbPQ"
-          localStorage.setItem("token",token)
+        
           this.route.navigateByUrl('/admin');
-        } else if (roleName === 'Customer') {
-          var tokenCustomer="eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRGhvbmkiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsImV4cCI6MTcwMDU2NTQzOH0.fPI8jeIN7I0TlJsBd9s7r5_MZLGkH1VYDEDXHktUpyaGNaxcl2x9pJWfqwg4fC1O51JG93VBXGGavUTS1gOqyA" 
-          localStorage.setItem("token",tokenCustomer)
+        } else if (this.user.roleName=== 'Customer') {
+          
           this.route.navigateByUrl('/customer');
         } 
       },

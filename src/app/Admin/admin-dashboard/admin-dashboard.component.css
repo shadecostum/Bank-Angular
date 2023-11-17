@@ -46,3 +46,7 @@ body {
     background-color: black;
     color: white; /* Adjust text color for better visibility on the dark background */
   }
+  .card-img-top{
+    width: 261px;
+    height: 150px;
+  }
