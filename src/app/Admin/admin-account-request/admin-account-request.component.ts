@@ -9,9 +9,12 @@ import { AccountServiceService } from 'src/app/service/account-service.service';
 })
 export class AdminAccountRequestComponent {
 
-
+  refreshfun() {
+    console.log('refreshfun called');
+    location.reload();
+  }
   accounts: any[] = [];
-
+  showAccountNotFound=false
   constructor(private auth:AccountServiceService)
    {
     this.auth.ShowAccountRequest().subscribe(
@@ -21,6 +24,7 @@ export class AdminAccountRequestComponent {
       },
       error:(error:HttpErrorResponse) => {
         console.error('Error fetching accounts:', error);
+       this.showAccountNotFound=true
       }
     }
     );
@@ -28,8 +32,21 @@ export class AdminAccountRequestComponent {
 
    acceptAccount(account:any)
    {
+    this.auth.ActivateAccountById(account).subscribe(
+      {
+        next:(res)=>
+        {
+          alert("account Activated Successfully")
+        },
+        error:(err:HttpErrorResponse)=>
+        {
+          console.log(err);
 
-   }
+          
+        }
+      }
+    )
+   } 
    viewDocument(account:any)
    {
 
@@ -39,6 +56,8 @@ export class AdminAccountRequestComponent {
     {
       
     }
+
+   
   
 searchCustomerId:any
 }

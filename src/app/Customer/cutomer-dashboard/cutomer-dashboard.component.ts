@@ -220,8 +220,18 @@ logout() {
   this.routeSet.navigateByUrl("")
   // Additional logout logic (e.g., redirect to login page) can be added here
 }
-
-
+showQueryTab=false
+queyFunShow()
+{
+ this.showQueryTab=true
+ this.showTransaction=false
+ this.showAccountCreate=false;
+ this.showDocument = false;
+ this.showQuery=false
+ this.showAccountCreate=false;
+ this.showPassbook=false;
+ this.showAccountForm=false;
+}
 
 
 

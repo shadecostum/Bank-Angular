@@ -17,6 +17,8 @@ export class AccountServiceService {
  
   setAccountInterestAdminUrl="https://localhost:7078/api/Account/AccountIntrestUpdate"
 
+  activateAccountByIdUrl="https://localhost:7078/api/Account/activeId"
+
 
   constructor(private http:HttpClient) { }
 
@@ -43,6 +45,12 @@ public AccountIdGetByCustomerId(id:any)
 {
   return this.http.get(this.getAccountIdByCustomerIdUrl+"/"+id)
 }
+
+public ActivateAccountById(id:any)
+{
+  return this.http.get(this.activateAccountByIdUrl+"/"+id)
+}
+
 
 }
 

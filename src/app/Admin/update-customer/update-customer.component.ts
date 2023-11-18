@@ -93,7 +93,21 @@ fetchSingleData: any={};
 
   submitData(data:any)
   {
-
+    this.auth.UpdateCustomer(data).subscribe(
+      {
+        next:(data)=>
+      {
+         alert("successfully updated")
+         console.log(data);
+         
+        },
+        error:(err:HttpErrorResponse)=>
+      {
+        console.log(err);
+  
+      }
+      }
+    )
   }
 
 }

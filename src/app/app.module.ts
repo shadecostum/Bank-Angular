@@ -32,6 +32,7 @@ import { ShowCustomerComponent } from './Admin/show-customer/show-customer.compo
 import { PaginationComponent } from './Customer/pagination/pagination.component';
 import { TwoDateFilterComponent } from './Customer/two-date-filter/two-date-filter.component';
 import { SetInterestComponent } from './Admin/set-interest/set-interest.component';
+import { ViewQueryComponent } from './Customer/view-query/view-query.component';
 
 
 
@@ -58,6 +59,7 @@ import { SetInterestComponent } from './Admin/set-interest/set-interest.componen
     PaginationComponent,
     TwoDateFilterComponent,
     SetInterestComponent,
+    ViewQueryComponent,
 
   ],
   imports: [

@@ -35,6 +35,7 @@ this.auth.setAccountInterest(data).subscribe(
     {
       console.log(data);
       alert("successfully updated the Interest")
+      location.reload()
       
     },
     error:(err:HttpErrorResponse)=>

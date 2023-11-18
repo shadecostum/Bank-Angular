@@ -16,6 +16,8 @@ passbookViewUrl="https://localhost:7078/api/Customer/passbook?id";
 
 askQueryUrl="https://localhost:7078/api/Query/customerAskQuery";
 
+updateCustoemrUrl="https://localhost:7078/api/Customer"
+
 paginationUrl="";
 
 twoDateFilterUrl="https://localhost:7078/api/Transaction/DateFilter"//need to modify 
@@ -59,6 +61,11 @@ public twoDateFilter(data:any)
 {
   
   return this.http.post(this.twoDateFilterUrl,data)
+}
+
+public UpdateCustomer(data:any)
+{
+ return this.http.put(this.updateCustoemrUrl,data)
 }
 
 

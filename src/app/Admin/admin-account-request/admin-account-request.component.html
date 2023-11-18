@@ -1,4 +1,6 @@
 <!-- account-list.component.html -->
+<!-- Your existing HTML -->
+
 
 <div class="container mt-4">
     <h2>Account List</h2>
@@ -25,7 +27,7 @@
               <td>{{ account.accountBalance }}</td>
               <td>{{ account.customerId }}</td>
               <td>
-                <button class="btn btn-primary" (click)="acceptAccount(account)">Accept</button>
+                <button class="btn btn-primary" (click)="acceptAccount(account.accountNumber)">Accept</button>
               </td>
              
             </tr>
@@ -46,4 +48,11 @@
       </div>
     </div>
   </div>
-  
+  <div *ngIf="showAccountNotFound" class="modal-overlay">
+    <div class="modal-dialog">
+      <ngb-alert class="bg-danger">
+        <h1 class="text-white">Sorry, Account Not Found</h1>
+        <button class="btn btn-success" (click)="refreshfun()">Clear</button>
+      </ngb-alert>
+    </div>
+  </div>

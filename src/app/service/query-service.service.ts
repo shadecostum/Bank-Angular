@@ -10,6 +10,8 @@ export class QueryServiceService {
 
   adminReplyQuryUrl="https://localhost:7078/api/Query/adminResponceQuery"
 
+  getByCustomerIdUrl="https://localhost:7078/api/Query/customerId"
+
   constructor(private http:HttpClient) { }
 
 getRequestQuery()
@@ -20,6 +22,10 @@ getRequestQuery()
 putReplyQuery(data:any)
 {
   return this.http.put(this.adminReplyQuryUrl,data);
+}
+public getCustomerQuery(id:any)
+{
+  return this.http.get(this.getByCustomerIdUrl+"/"+id);
 }
 
 

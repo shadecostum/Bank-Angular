@@ -28,8 +28,8 @@
           <i class="fas fa-chart-line fa-fw me-3"></i>
           <span>Upload Documents</span>
        </a>
-          <a routerLink="/customerDocument" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2">
-            <span>Fixed Deposite</span>
+          <a routerLinkActive="active" (click)="queyFunShow()" class="list-group-item list-group-item-action py-2 ripple mt-lg-2">
+            <span>View All Query Asked</span>
           </a>
           <a  routerLinkActive="active"  class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
            (click)="logout()">
@@ -177,6 +177,10 @@
     </div>
     
     <h4 *ngIf="showWarrning"> Create Customer Details to Request Account</h4>
+
+    <div *ngIf="showQueryTab">
+     <app-view-query></app-view-query>
+    </div>
 
   <h3>userId: out {{newUserId}}</h3>
   
