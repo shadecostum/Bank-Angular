@@ -48,10 +48,14 @@ export class CutomerDashboardComponent {
 
           //extracting customerobject and passing data service
           this.customerId=this.customerDataStore.customerId
-          datas.customerId=this.customerId
+          console.log("CustomerId",this.customerId);
           
+          datas.customerId=this.customerId
+
           if(datas.customerId !=null)
           {
+            console.log("customerId",this.customerId);
+            
             forAccount.AccountIdGetByCustomerId(this.customerId).subscribe(
               {
                 next:(res)=>
@@ -68,7 +72,6 @@ export class CutomerDashboardComponent {
               }
             )
           }
-
           
         },
         error:(err:HttpErrorResponse)=>
@@ -82,6 +85,7 @@ export class CutomerDashboardComponent {
     )
 
      //create a function to by customerId account id fetch
+   
   
     
   } 

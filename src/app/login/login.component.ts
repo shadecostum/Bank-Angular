@@ -47,7 +47,7 @@ constructor(private auth:UserServiceService,private route:Router,private datas:D
       {
 
        this.headers=response.headers.get('jwt');
-       this.headers=JSON.parse(this.headers)
+       this.headers=JSON.parse(this.headers) 
 
        this.user=response.body;
 

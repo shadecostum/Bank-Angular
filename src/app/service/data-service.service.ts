@@ -78,7 +78,7 @@ logout() {
   this._userId = 0;
   this._customerId = 0;
   this._accountId = 0;
-
+ 
   // Update the local storage
   this.updateUserDataInLocalStorage();
 }
