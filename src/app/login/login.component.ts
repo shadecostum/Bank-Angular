@@ -34,6 +34,7 @@ get passwordValidator()
 token:any='';
 headers:any;
 user:any;
+showErrorMessage:any;
 constructor(private auth:UserServiceService,private route:Router,private datas:DataServiceService){}
 
   submitData(data:any)
@@ -41,15 +42,9 @@ constructor(private auth:UserServiceService,private route:Router,private datas:D
 
     this.auth.login(data).subscribe(
       {
-        //:HttpResponse<any>
+       
         next:(response)=>
       {
-        //const roleName = response.body.message;
-       
-  
-       // console.log('roleName', roleName);
-      
-          
 
        this.headers=response.headers.get('jwt');
        this.headers=JSON.parse(this.headers)
@@ -83,10 +78,17 @@ constructor(private auth:UserServiceService,private route:Router,private datas:D
       {
         console.log(errorResponce);
         console.log("error happende");
-        
+        this.showErrorMessage=true
         
       }
     }
     )
   }
+
+  RefreshLogin()
+  {
+    location.reload();
+  }
+
+
 }

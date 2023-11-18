@@ -10,6 +10,14 @@ export class AccountServiceService {
 
   accountRequestAdminUrl="https://localhost:7078/api/Account/customerAccountRequest";
 
+  getAccountRequestUrl= "https://localhost:7078/api/Account/accounRequest";
+
+  getAccountIdByCustomerIdUrl="https://localhost:7078/api/Account/customerIdAccountIdget"
+
+ 
+  setAccountInterestAdminUrl="https://localhost:7078/api/Account/AccountIntrestUpdate"
+
+
   constructor(private http:HttpClient) { }
 
 public AccountFilter(id:any)
@@ -21,8 +29,20 @@ public RequestAccount(data:any)
 {
   return this.http.post(this.accountRequestAdminUrl,data)
 }
+public ShowAccountRequest()
+{
+  return this.http.get(this.getAccountRequestUrl)
+}
 
+public setAccountInterest(data:any)
+{
+  return this.http.post(this.setAccountInterestAdminUrl,data)
+}
 
+public AccountIdGetByCustomerId(id:any)
+{
+  return this.http.get(this.getAccountIdByCustomerIdUrl+"/"+id)
+}
 
 }
 

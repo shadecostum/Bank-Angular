@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomerServiceService } from 'src/app/service/customer-service.service';
+import { DataServiceService } from 'src/app/service/data-service.service';
 
 @Component({
   selector: 'app-customer-query',
@@ -11,10 +12,12 @@ import { CustomerServiceService } from 'src/app/service/customer-service.service
 })
 export class CustomerQueryComponent {
 
-
-  constructor(private auth:CustomerServiceService,private routeSet:Router)
+customerId:any
+  constructor(private auth:CustomerServiceService,private routeSet:Router,private datas:DataServiceService)
   {
     
+this.customerId=datas.customerId
+
   }
   
 
@@ -50,7 +53,7 @@ this.auth.AskCustomerQuery(data).subscribe(
       this.queryResponce=true;
     },
     error:(err:HttpErrorResponse)=>
-    {
+    { 
       console.log(err);
       console.log("error here");
       

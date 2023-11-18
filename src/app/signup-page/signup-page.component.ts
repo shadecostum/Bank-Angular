@@ -11,7 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./signup-page.component.css']
 })
 export class SignupPageComponent {
-  
+  showErrorMessage:any;
   registerForm=new FormGroup(
     {
       UserName:new FormControl('',[Validators.required]),
@@ -60,12 +60,16 @@ export class SignupPageComponent {
         },
         error: (errorRes: HttpErrorResponse) => {
           console.log(errorRes);
-          console.log("Error Message: ", errorRes.message);
-          console.log("Error Status: ", errorRes.status);
-          console.log("Error Response: ", errorRes.error); // Log the entire error response
+          this.showErrorMessage=true
         }
       }
     )
+  }
+
+
+  RefreshDighnUp()
+  {
+    location.reload()
   }
 
 }

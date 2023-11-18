@@ -31,6 +31,7 @@ import { DeleteCustomerComponent } from './Admin/delete-customer/delete-customer
 import { ShowCustomerComponent } from './Admin/show-customer/show-customer.component';
 import { PaginationComponent } from './Customer/pagination/pagination.component';
 import { TwoDateFilterComponent } from './Customer/two-date-filter/two-date-filter.component';
+import { SetInterestComponent } from './Admin/set-interest/set-interest.component';
 
 
 
@@ -56,6 +57,7 @@ import { TwoDateFilterComponent } from './Customer/two-date-filter/two-date-filt
     ShowCustomerComponent,
     PaginationComponent,
     TwoDateFilterComponent,
+    SetInterestComponent,
 
   ],
   imports: [

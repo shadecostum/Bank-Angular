@@ -18,7 +18,7 @@ constructor(private auth:CustomerServiceService,private routeSet:Router)
 
 
 reset(){location.reload()}
-passbook:any;
+passbook:any; 
 showPassbook=false;
 //view Pass book
 viewPassbook(id:any)

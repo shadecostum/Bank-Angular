@@ -18,8 +18,9 @@ askQueryUrl="https://localhost:7078/api/Query/customerAskQuery";
 
 paginationUrl="";
 
-twoDateFilterUrl="https://localhost:7078/api/Transaction/DateFilter"
+twoDateFilterUrl="https://localhost:7078/api/Transaction/DateFilter"//need to modify 
 
+fetchCustomerDetailsUrl="https://localhost:7078/api/Customer/customerDataFetch"//for customer fetching
 
   constructor(private http:HttpClient) { }
 
@@ -30,7 +31,7 @@ public RegisterCustomer(data:any)
 
 public ViewPassBook(id:any)
 {
-  return this.http.get(this.passbookViewUrl+"="+id)
+  return this.http.get(this.passbookViewUrl+"="+id) 
 }
 
 public AskCustomerQuery(data:any)
@@ -44,7 +45,7 @@ public SHowAllCustomer()
 }
 public getCustomerById(id:any)
 {
-  return this.http.get(this.getCustomerByIdUrl+"/"+id)
+  return this.http.get(this.fetchCustomerDetailsUrl+"/"+id)
 }
 
 

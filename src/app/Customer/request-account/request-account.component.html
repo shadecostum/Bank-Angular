@@ -23,14 +23,13 @@
   
       <div class="form-group mt-2">
         <label for="customerId">Customer ID:</label>
-        <input type="number" formControlName="customerId" class="form-control" />
-        <div *ngIf="customerIdValidator && customerIdValidator.invalid && customerIdValidator.touched" class="text-danger">
-          Customer ID is required.
-        </div>
+        <input type="number" formControlName="customerId" placeholder="{{cutomerId}}"
+         class="form-control" [(ngModel)]="cutomerId" readonly />
+        
       </div>
   
       <button type="submit" class="btn btn-primary" [disabled]="accountForm.invalid">Submit</button>
     </form>
   </div>
-  <h1>{{localValue}}</h1>
+  <h1>show Request customer id{{cutomerId}}</h1>
   

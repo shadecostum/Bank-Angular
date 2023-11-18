@@ -9,7 +9,7 @@ export class UserServiceService {
 
 url="https://localhost:7078/api/Login/login"
  
-
+ 
 constructor(private http:HttpClient){}
 
   login(data:any)

@@ -180,6 +180,23 @@ showCustomerFun()
  this.formShow=false;
  this.showQueryResult=false;
 }
+//update interest
+showUpdateInterest=false
+
+UpdateInterest()
+{
+  this.showUpdateInterest=true
+  this.showAccountRequest=false;
+  this.showAccountTransactions=false 
+  this.formShow=false;
+  this.showQueryResult=false;
+}
+
+
+showAccountRequestFun()
+{
+  
+}
 
 
 }

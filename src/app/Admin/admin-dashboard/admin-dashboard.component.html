@@ -17,7 +17,8 @@
         <a routerLink="/admin" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
           ><i class="fas fa-lock fa-fw me-3"></i><span>Transaction</span></a
         >
-        <a routerLink="/admin" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
+        <a  routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
+        (click)="showAccountRequestFun()"
           ><i class="fas fa-chart-line fa-fw me-3"></i><span>Account Request</span></a
         >
         <a routerLink="/admin" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2">
@@ -190,7 +191,7 @@
         </div>
       </div>
     </div>
-    <div class="col" (click)="AccountTransactionFilter()">
+    <div class="col" (click)="UpdateInterest()">
       <div class="card h-100">
         <img src="../../../assets/interest.jpg" class="card-img-top" alt="Hollywood Sign on The Hill"/>
         <div class="card-body">
@@ -263,7 +264,14 @@
 <app-update-customer></app-update-customer>
   </div>
   
+  <div *ngIf="showAccountRequest">
+<app-admin-account-request></app-admin-account-request>
+  </div>
   
+  <div *ngIf="showUpdateInterest">
+    <app-set-interest></app-set-interest>
+
+  </div>
   
 </main>
 <!--Main layout-->

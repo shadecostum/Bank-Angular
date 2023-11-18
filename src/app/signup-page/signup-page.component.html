@@ -1,19 +1,27 @@
 <!-- Section: Design Block -->
+<div class="overlay" *ngIf="showErrorMessage">
+  <div class="popup-container">
+    <ngb-alert class="error-alert">Username Already Exists</ngb-alert>
+    <button (click)="RefreshDighnUp()" class="btn btn-primary">Try Again</button>
+  </div>
+</div>
+
+
 <section class="background-radial-gradient overflow-hidden">
     <style>
       .background-radial-gradient {
         background-color: hsl(218, 41%, 15%);
         background-image: radial-gradient(650px circle at 0% 0%,
-            hsl(218, 41%, 35%) 15%,
-            hsl(218, 41%, 30%) 35%,
-            hsl(218, 41%, 20%) 75%,
-            hsl(218, 41%, 19%) 80%,
+            hsl(162, 41%, 35%) 15%,
+            hsl(152, 41%, 30%) 35%,
+            hsl(139, 41%, 20%) 75%,
+            hsl(148, 40%, 19%) 80%,
             transparent 100%),
           radial-gradient(1250px circle at 100% 100%,
-            hsl(218, 41%, 45%) 15%,
-            hsl(218, 41%, 30%) 35%,
-            hsl(218, 41%, 20%) 75%,
-            hsl(218, 41%, 19%) 80%,
+            hsl(167, 41%, 45%) 15%,
+            hsl(157, 41%, 30%) 35%,
+            hsl(151, 41%, 20%) 75%,
+            hsl(128, 40%, 19%) 80%,
             transparent 100%);
       }
   
@@ -22,7 +30,7 @@
         width: 220px;
         top: -60px;
         left: -130px;
-        background: radial-gradient(#44006b, #ad1fff);
+        background: radial-gradient(#ddd3e2, #2b913c);
         overflow: hidden;
       }
   
@@ -45,15 +53,15 @@
     <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
       <div class="row gx-lg-5 align-items-center mb-5">
         <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-          <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-            The best offer <br />
-            <span style="color: hsl(218, 81%, 75%)">for your business</span>
+          <h1 class="my-5 display-7 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+            Experience secure and convenient banking <br />
+            <span style="color: hsl(218, 81%, 75%)">with our E-bank services</span>
           </h1>
           <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Temporibus, expedita iusto veniam atque, magni tempora mollitia
-            dolorum consequatur nulla, neque debitis eos reprehenderit quasi
-            ab ipsum nisi dolorem modi. Quos?
+            Unlock the future of banking with our E-bank platform. Seamlessly manage your finances,
+             transfer funds, and access a suite of online banking features. Enjoy the convenience of 24/7 account 
+             access and secure transactions, all from the comfort of your device. Embrace the next level of banking with our
+              E-bank services, designed to simplify your financial journey.
           </p>
         </div>
   
@@ -70,15 +78,15 @@
                   style="color: red;"
                   >required UserName</span>
                     <input type="text"  class="form-control"
-                    formControlName="UserName" />
-                    <label class="form-label" for="form3Example3">User Name</label>
+                    formControlName="UserName" placeholder="Enter Your User Name"/>
+                    <label class="form-label" >User Name</label>
                   </div>
 
                   <div class="form-outline mb-4">
                     <span *ngIf="emailValidator && emailValidator.invalid && emailValidator.touched"
                     style="color: red;"
                     >required Email</span>
-                    <input type="email"  class="form-control" 
+                    <input type="email"  class="form-control" placeholder="Enter Your Email address" 
                     formControlName="email"/>
                     <label class="form-label" for="form3Example3">Email address</label>
                   </div>
@@ -89,7 +97,7 @@
                     style="color: red;"
                     >required Password
                   </span>
-                    <input type="password" class="form-control" 
+                    <input type="password" class="form-control"  placeholder="Enter Your Password" 
                     formControlName="Password"/>
                     <label class="form-label" for="form3Example4">Password</label>
                     <span *ngIf="passwordValidator && passwordValidator.invalid && passwordValidator.touched"
@@ -101,7 +109,7 @@
                   <span *ngIf="confirmValidator && confirmValidator.invalid && confirmValidator.touched"
                     style="color: red;"
                     >required Password</span>
-                  <input type="password" class="form-control"
+                  <input type="password" class="form-control" placeholder="Confirm Your Password"
                   formControlName="ConfirmPassword" />
                   <label class="form-label" for="form3Example4">Confirm Password</label>
                   <span *ngIf="registerForm.errors?.['PasswordMatchError'] && confirmValidator && confirmValidator.touched" style="color: red;">:  password should match</span>
@@ -111,7 +119,7 @@
                   <span *ngIf="roleValidator && roleValidator.invalid && roleValidator.touched"
                   style="color: red;"
                   >required Role Id</span>
-                    <input type="number" class="form-control"
+                    <input type="number" class="form-control" placeholder="Enter Your Role Id"
                     formControlName="roleId" />
                     <label class="form-label" for="form3Example3">Role Id</label>
                   </div>
@@ -134,3 +142,10 @@
     </div>
   </section>
   <!-- Section: Design Block -->
+  <div class="overlay" *ngIf="showErrorMessage">
+    <div class="popup-container">
+      <ngb-alert class="error-alert">Username Already Exists</ngb-alert>
+      <button (click)="RefreshDighnUp()" class="btn btn-primary">Try Again</button>
+    </div>
+  </div>
+  

@@ -18,7 +18,8 @@
           Required Customer ID
         </span>
         <label for="customerId" class="form-label">Customer ID:</label>
-        <input type="number" class="form-control" formControlName="customerId">
+        <input type="number" class="form-control" formControlName="customerId" placeholder="{{customerId}}"
+        [(ngModel)]="customerId" readonly>
       </div>
       <button type="submit" class="btn btn-primary" [disabled]="QueryForm.invalid">Submit</button>
     </form>

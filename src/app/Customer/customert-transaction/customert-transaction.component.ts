@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { faLaptopHouse } from '@fortawesome/free-solid-svg-icons';
+import { DataServiceService } from 'src/app/service/data-service.service';
 import { TransactionServiceService } from 'src/app/service/transaction-service.service';
 
 @Component({
@@ -11,7 +12,15 @@ import { TransactionServiceService } from 'src/app/service/transaction-service.s
 })
 export class CustomertTransactionComponent {
 
-constructor(private auth:TransactionServiceService){}
+
+accountNumber:any
+
+
+
+constructor(private auth:TransactionServiceService,private datas:DataServiceService)
+{
+this.accountNumber=datas.accountId
+}
 
   depositeShow=false
   cardDeposiet(){
@@ -35,7 +44,7 @@ constructor(private auth:TransactionServiceService){}
 
 //deposite form validation
   depositeForm = new FormGroup({
-    accountId: new FormControl('', Validators.required),
+    accountId: new FormControl(''),
     transactionType: new FormControl('Deposit', Validators.required),
     transactionAmount: new FormControl('', [Validators.required, Validators.min(0)]),
     description: new FormControl('',Validators.required)
@@ -88,7 +97,7 @@ onSubmitDeposite(Formdata:any)
 //
 
 withdrawForm = new FormGroup({
-  accountId: new FormControl('', Validators.required),
+  accountId: new FormControl(''),
   transactionType: new FormControl('withdraw', Validators.required),
   transactionAmount: new FormControl('', [Validators.required, Validators.min(0)]),
   description: new FormControl('',Validators.required)
@@ -139,7 +148,7 @@ this.auth.withdrawAmount(Formdata).subscribe(
 
 //transfer Amount
 transferForm = new FormGroup({
-  accountNumber: new FormControl('', Validators.required),
+  accountNumber: new FormControl(''),
   targetAccountNumber: new FormControl('', Validators.required),
   amount: new FormControl('', [Validators.required, Validators.min(0)]),
   description: new FormControl('',Validators.required)
@@ -163,7 +172,7 @@ get tDescriptionValidator()
 {
   return this.transferForm.get('description')
 }
-
+showvalidAccount=false
 onSubmitTransfer(FormData:any)
 {
 this.auth.transferAmount(FormData).subscribe(
@@ -179,6 +188,7 @@ this.auth.transferAmount(FormData).subscribe(
     {
       console.log(err);
       console.log("error here");
+      this.showvalidAccount=true
       
       
     }
@@ -186,7 +196,10 @@ this.auth.transferAmount(FormData).subscribe(
 )
 }
 
-
+refreshFun()
+{
+  location.reload()
+}
 
 
 }

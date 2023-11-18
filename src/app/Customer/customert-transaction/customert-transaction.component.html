@@ -1,3 +1,12 @@
+<div *ngIf="showvalidAccount">
+  <div class="container mt-4 d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <ngb-alert class="bg-danger text-white" style="opacity: 0.9;">
+      <h1> Invalid Account Number/Account Number Doesn't Exist</h1>
+      <button class="btn btn-light" (click)="refreshFun()">Try Again</button>
+    </ngb-alert>
+  </div>
+</div>
+
 
 <div class="container mt-4">
     <div class="row justify-content-center">
@@ -28,17 +37,15 @@
         <form [formGroup]="transferForm" (ngSubmit)="onSubmitTransfer(transferForm.value)">
             <div class="form-group">
                 <label for="exampleInputAccountNumber">Account Number</label>
-                <input type="number" class="form-control" formControlName="accountNumber" placeholder="Enter Account Number">
-                <div *ngIf="tAccountNumberValidator && tAccountNumberValidator.invalid && tAccountNumberValidator.touched" class="text-danger">
-                  Account Number is required.
-                </div>
+                <input type="number" class="form-control" formControlName="accountNumber"
+                 placeholder="{{accountNumber}}"   [(ngModel)]="accountNumber"  readonly>
               </div>
+
               <div class="form-group">
                 <label for="exampleInputAccountNumber">Target Account Number</label>
-                <input type="number" class="form-control" formControlName="targetAccountNumber" placeholder="Enter Target Account Number">
-                <div *ngIf="targetAccountNumberValidator && targetAccountNumberValidator.invalid && targetAccountNumberValidator.touched" class="text-danger">
-                Target Account Number is required.
-                </div>
+                <input type="number" class="form-control" formControlName="targetAccountNumber" 
+                placeholder="Enter Target Account Number">
+                
               </div>
               <div class="form-group">
                 <label for="amount">Amount</label>
@@ -64,12 +71,10 @@
    
         <form [formGroup]="depositeForm" (ngSubmit)="onSubmitDeposite(depositeForm.value)">
             <div class="form-group">
-              <label for="exampleInputAccountNumber">Account Number</label>
-              <input type="number" class="form-control" formControlName="accountId" placeholder="Enter Account Number">
-              <div *ngIf="accountNumberValidator && accountNumberValidator.invalid && accountNumberValidator.touched" class="text-danger">
-                Account Number is required.
+                <label for="exampleInputAccountNumber">Account Number</label>
+                <input type="number" class="form-control" formControlName="accountId"
+                 placeholder="{{accountNumber}}"   [(ngModel)]="accountNumber"  readonly>
               </div>
-            </div>
             <div class="form-group">
               <label for="transactionType">Transaction Type</label>
               <select class="form-control" formControlName="transactionType">
@@ -102,13 +107,11 @@
       <div class="col-md-6" *ngIf="withdrawShow">
        
         <form [formGroup]="withdrawForm" (ngSubmit)="onSubmitWithdraw(withdrawForm.value)">
-            <div class="form-group">
-                <label for="exampleInputAccountNumber">Account Number</label>
-                <input type="number" class="form-control" formControlName="accountId" placeholder="Enter Account Number">
-                <div *ngIf="waccountNumberValidator && waccountNumberValidator.invalid && waccountNumberValidator.touched" class="text-danger">
-                  Account Number is required.
-                </div>
-              </div>
+          <div class="form-group">
+            <label for="exampleInputAccountNumber">Account Number</label>
+            <input type="number" class="form-control" formControlName="accountId"
+             placeholder="{{accountNumber}}"   [(ngModel)]="accountNumber"  readonly>
+          </div>
               <div class="form-group">
                 <label for="transactionType">Transaction Type</label>
                 <select class="form-control" formControlName="transactionType">
