@@ -14,11 +14,11 @@
         <a routerLinkActive="active"class="list-group-item list-group-item-action py-2 ripple mt-lg-2" (click)="showCustomerFun()">
           <i  class="fab fa-mdb"><span>Customers</span></i>
         </a>
-        <a routerLink="/admin" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
+        <a (click)="showTransaction()" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
           ><i class="fas fa-lock fa-fw me-3"></i><span>Transaction</span></a
         >
         <a  routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
-        (click)="showAccountRequestFun()"
+        
           ><i class="fas fa-chart-line fa-fw me-3"></i><span>Account Request</span></a
         >
         <a routerLink="/admin" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2">
@@ -278,6 +278,11 @@
   <div *ngIf="showUpdateInterest">
     <app-set-interest></app-set-interest>
 
+  </div>
+
+
+  <div *ngIf="showTransactionState">
+<app-transaction-show></app-transaction-show>
   </div>
   
 </main>

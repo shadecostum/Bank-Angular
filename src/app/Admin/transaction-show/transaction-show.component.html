@@ -1,0 +1,26 @@
+
+<div class="container mt-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Transaction Type</th>
+          <th scope="col">Transaction Amount</th>
+          <th scope="col">Description</th>
+          <th scope="col">Transaction Date</th>
+          <th scope="col">Account Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of transactions">
+          <th scope="row">{{ transaction.transactionId }}</th>
+          <td>{{ transaction.transactionType }}</td>
+          <td>{{ transaction.transactionAmount }}</td>
+          <td>{{ transaction.description }}</td>
+          <td>{{ transaction.transactionDate | date: 'yyyy-MM-dd HH:mm:ss' }}</td>
+          <td>{{ transaction.accountId }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

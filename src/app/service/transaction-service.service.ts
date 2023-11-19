@@ -14,7 +14,7 @@ export class TransactionServiceService {
 
   transferTransactionUrl="https://localhost:7078/api/Transaction/TransferAmount"
 
-  showAllTransactionsUrl="https://localhost:7078/api/Transaction";
+  showAllTransactionsUrl="https://localhost:7078/api/Transaction/showAllTransaction";
 
   showIdTransactionUrl="";
 

@@ -191,11 +191,15 @@ UpdateInterest()
   this.formShow=false;
   this.showQueryResult=false;
 }
-
-
-showAccountRequestFun()
+showTransactionState=false
+showTransaction()
 {
-  
+  this.showTransactionState=true
+  this.showUpdateInterest=false
+  this.showAccountRequest=false;
+  this.showAccountTransactions=false 
+  this.formShow=false;
+  this.showQueryResult=false;
 }
 
 logout() {
