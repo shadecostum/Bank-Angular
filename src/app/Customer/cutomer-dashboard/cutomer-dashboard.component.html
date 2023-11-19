@@ -1,7 +1,7 @@
 
 <header>
     <!-- Sidebar -->
-    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-dark">
+    <!-- <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-dark">
       <div class="position-sticky">
         <div class="list-group list-group-flush mx-3 mt-4  ">
           <a
@@ -39,8 +39,56 @@
         
         </div>
       </div>
-    </nav>
+    </nav> -->
     <!-- Sidebar -->
+
+
+
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-dark">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+          <button routerLink="/customer" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+            <span>Customer dashboard</span>
+          </button>
+          <button  class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
+            (click)="showAccountCreateFun()">
+            <i class="fas fa-lock fa-fw me-3"></i><span>Register Customer</span>
+          </button>
+          <button class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
+            (click)="showAccountRequestFun()">
+            <i class="fas fa-lock fa-fw me-3"></i><span>Request Account</span>
+          </button>
+          <button class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
+            (click)="showTransactionFun()">
+            <i class="fas fa-lock fa-fw me-3"></i><span>Transaction</span>
+          </button>
+          <button class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
+            (click)="showDocumentFun()">
+            <i class="fas fa-chart-line fa-fw me-3"></i><span>Upload Documents</span>
+          </button>
+          <button  (click)="queyFunShow()" class="list-group-item list-group-item-action py-2 ripple mt-lg-2">
+            <span>View All Query Asked</span>
+          </button>
+          <button  class="list-group-item list-group-item-action py-2 ripple mt-lg-2" (click)="logout()">
+            <i class="fas fa-chart-bar fa-fw me-3"></i><span>LogOut Customer</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
   
     <!-- Navbar -->
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-primary-subtle fixed-top">
@@ -58,9 +106,9 @@
         >
           <i class="fas fa-bars"></i>
         </button>
-        
+     
         <!-- Brand -->
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/customer">
           <img
           src="../../../assets/logo.png"
             height="50"
@@ -182,14 +230,6 @@
      <app-view-query></app-view-query>
     </div>
 
-  <h3>userId: out {{newUserId}}</h3>
-  
-  <h3>customerId:{{customerId}}</h3>
-
-  <h3>AccountId:{{customerId}}</h3>
-  <h3>AccountId: out{{customerId}}</h3>
-
-  <h3>userId In:{{userId}}</h3>
   </main>
   <!--Main layout-->
  

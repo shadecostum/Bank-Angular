@@ -25,7 +25,7 @@ body {
     }
   }
   .sidebar .active {
-    border-radius: 5px;
+    border-radius: 5px 5px 5px 5px;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
   }
   
@@ -63,7 +63,7 @@ body {
   background-color: #f8f9fa; /* Light background color */
   padding: 20px; /* Add some padding */
   border: 1px solid #dee2e6; /* Add a border */
-  border-radius: 5px; /* Add border-radius for rounded corners */
+  border-radius: 10px; /* Add border-radius for rounded corners */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
 }
 
@@ -88,4 +88,49 @@ body {
 .card-img-top{
   width: 261px;
   height: 150px;
+}
+/* Add this CSS to your component's styles or in a separate styles file */
+
+#sidebarMenu {
+  width: 250px;
+  background-color: #343a40; /* Sidebar background color */
+  border-radius: 20px; /* Sidebar border radius */
+}
+
+.list-group-item {
+  color: #222121; /* Text color */
+  border: none;
+}
+
+.list-group-item:hover {
+  background-color: #495057; /* Hover background color */
+}
+
+.list-group-item.active {
+  background-color: #007bff; /* Active item background color */
+}
+
+.list-group-item span {
+  margin-left: 10px;
+}
+
+.list-group-item i {
+  width: 20px;
+  border-radius: 20px ;
+}
+
+/* Add additional styles for button appearance */
+.list-group-item button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  padding: 10px;
+
+  width: 100%;
+}
+
+.list-group-item button:hover {
+  background-color: #495057; /* Hover background color for buttons */
 }

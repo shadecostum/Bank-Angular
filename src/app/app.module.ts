@@ -37,6 +37,7 @@ import { TransactionShowComponent } from './Admin/transaction-show/transaction-s
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +63,7 @@ import { TransactionShowComponent } from './Admin/transaction-show/transaction-s
     SetInterestComponent,
     ViewQueryComponent,
     TransactionShowComponent,
+
 
   ],
   imports: [

@@ -23,6 +23,7 @@ export class AdminDashboardComponent {
     private datas:DataServiceService)
   {
     
+    
   }
  
 
@@ -64,8 +65,6 @@ export class AdminDashboardComponent {
 showQueryResult=false;
 customerQueries:any;
 noQueryAdded=false;
-
-
   handleCardClick() {
    this.QueryRequest.getRequestQuery().subscribe(
     {
@@ -76,6 +75,10 @@ noQueryAdded=false;
         console.log(data);
         this.showQueryResult=true;
 
+        this.showUpdateInterest=false
+        this.showAccountRequest=false;
+        this.showAccountTransactions=false 
+        this.showTransactionState=false
       },
       error:(err:HttpErrorResponse)=>
       {
@@ -92,10 +95,7 @@ noQueryAdded=false;
 
 
   feedbackMessage:any;
-
-
 //reply form
-
 
   replyForm = new FormGroup({
     replyQuery: new FormControl('', Validators.required),
@@ -110,10 +110,6 @@ get cutomerIdValidator()
 {
   return this.replyForm.get('customerId')
 }
-
-
-
-
 eroorQuerySubmit=false
 onSubmit(formData:any) {
 
@@ -143,7 +139,13 @@ onSubmit(formData:any) {
   formShow=false;
   generateReplyForm()
   {
-this.formShow=true;
+   this.formShow=true;
+
+this.showTransactionState=false
+this. showCustomerAll=false
+this.showAccountTransactions=false
+this.showAccountRequest=false;
+this.showTransactionState=false
 
   }
 
@@ -156,6 +158,7 @@ this. showCustomerAll=false
 this.showAccountTransactions=false 
 this.formShow=false;
 this.showQueryResult=false;
+this.showTransactionState=false
   }
 
   //
@@ -167,6 +170,7 @@ this.showQueryResult=false;
     this.showAccountRequest=false;
     this.formShow=false;
    this.showQueryResult=false;
+   this.showTransactionState=false
   }
 
   //showCustomerAll
@@ -179,6 +183,7 @@ showCustomerFun()
  this.showAccountTransactions=false 
  this.formShow=false;
  this.showQueryResult=false;
+ this.showTransactionState=false;
 }
 //update interest
 showUpdateInterest=false
@@ -186,20 +191,27 @@ showUpdateInterest=false
 UpdateInterest()
 {
   this.showUpdateInterest=true
+
   this.showAccountRequest=false;
   this.showAccountTransactions=false 
   this.formShow=false;
   this.showQueryResult=false;
+  this.showTransactionState=false
 }
+
+
 showTransactionState=false
 showTransaction()
 {
   this.showTransactionState=true
+
   this.showUpdateInterest=false
   this.showAccountRequest=false;
   this.showAccountTransactions=false 
   this.formShow=false;
   this.showQueryResult=false;
+  this. showCustomerAll=false;
+ 
 }
 
 logout() {

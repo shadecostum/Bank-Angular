@@ -50,3 +50,46 @@ body {
     width: 261px;
     height: 150px;
   }
+
+  #sidebarMenu button {
+    width: 100%; /* Make the button take full width */
+    text-align: left; /* Align text to the left */
+    border-radius: 20px; /* Oval shape with border-radius */
+    margin-bottom: 8px; /* Add some spacing between buttons */
+  }
+  
+  #sidebarMenu button:hover {
+    background-color: #343a40; /* Change background color on hover */
+    color: #ffffff; /* Change text color on hover */
+  }
+
+/* Add this CSS to your component's styles or in a separate styles file */
+
+/* Style for the table */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f8f9fa; /* Alternate row background color */
+}
+
+/* Style for the form */
+.form-label {
+  font-weight: bold;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+/* Style for error messages */
+.error-message {
+  color: red;
+}
+
+/* Style for the submit button */
+.btn-primary {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: #fff; /* Text color */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker color on hover */
+}

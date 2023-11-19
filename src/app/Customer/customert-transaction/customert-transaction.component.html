@@ -20,24 +20,33 @@
     <div class="row justify-content-center">
       <!-- Left Column with Cards -->
       <div class="col-md-6">
-        <div class="card mb-3" style="max-width: 18rem;" (click)="cardDeposiet()">
-          <div class="card-header">Click here Deposite Cash</div>
-          <div class="card-body">
-            <p class="card-text">Deposit Money to your account</p>
-          </div>
+        <div class="card mb-3" style="max-width: 18rem;">
+          <button class="btn btn-success" (click)="cardDeposiet()">
+            <div class="card-header">Click here Deposite Cash</div>
+            <div class="card-body">
+              <p class="card-text">Deposit Money to your account</p>
+            </div>
+          </button>
         </div>
-        <div class="card mb-3" style="max-width: 18rem;" (click)="cardWithdraw()">
-          <div class="card-header">Click here Withdraw Cash</div>
-          <div class="card-body">
-            <p class="card-text">Withdraw Money from your account</p>
-          </div>
+        
+        <div class="card mb-3" style="max-width: 18rem;">
+          <button class="btn btn-success" (click)="cardWithdraw()">
+            <div class="card-header">Click here Withdraw Cash</div>
+            <div class="card-body">
+              <p class="card-text">Withdraw Money from your account</p>
+            </div>
+          </button>
         </div>
-        <div class="card mb-3" style="max-width: 18rem;" (click)="cardTransfer()">
-          <div class="card-header">Click here Transfer Cash</div>
-          <div class="card-body">
-            <p class="card-text">Transfer Money to your other account</p>
-          </div>
+        
+        <div class="card mb-3" style="max-width: 18rem;">
+          <button class="btn btn-success" (click)="cardTransfer()">
+            <div class="card-header">Click here Transfer Cash</div>
+            <div class="card-body">
+              <p class="card-text">Transfer Money to your other account</p>
+            </div>
+          </button>
         </div>
+        
       </div>
    <!-- withdraw    -->
       <!-- Right Column with Form -->

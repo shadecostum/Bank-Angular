@@ -150,6 +150,7 @@ showDocument: boolean = false;
 
 showDocumentFun() {
   this.showDocument = true;
+
   this.showAccountStatment=false
   this.showQuery=false
  this.showAccountCreate=false;
@@ -171,6 +172,7 @@ this.showAccountCreate=true;
   this.showTransaction=false;
   this.showAccountForm=false;
   this.showPassbook=false;
+  this.showAccountStatment=false
 
 
 }
@@ -190,6 +192,7 @@ this.showTransaction=true
   this.showAccountCreate=false;
   this.showAccountForm=false;
   this.showPassbook=false;
+  this.showAccountStatment=false
   
   
 }
@@ -210,20 +213,17 @@ this.showAccountForm=true;
   this.showAccountCreate=false;
   this.showPassbook=false;
   this.showWarrning=true
+  this.showAccountStatment=false
 }
 
 
 //logout
-logout() {
-  // Call the logout method to clear user-related data
-  this.datas.logout();
-  this.routeSet.navigateByUrl("")
-  // Additional logout logic (e.g., redirect to login page) can be added here
-}
+
 showQueryTab=false
 queyFunShow()
 {
  this.showQueryTab=true
+ 
  this.showTransaction=false
  this.showAccountCreate=false;
  this.showDocument = false;
@@ -231,8 +231,14 @@ queyFunShow()
  this.showAccountCreate=false;
  this.showPassbook=false;
  this.showAccountForm=false;
+ this.showAccountStatment=false
 }
-
+logout() {
+  // Call the logout method to clear user-related data
+  this.datas.logout();
+  this.routeSet.navigateByUrl("")
+  // Additional logout logic (e.g., redirect to login page) can be added here
+}
 
 
 }
