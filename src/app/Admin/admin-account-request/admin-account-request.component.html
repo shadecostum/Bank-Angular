@@ -1,8 +1,14 @@
 <!-- account-list.component.html -->
 <!-- Your existing HTML -->
+<div *ngIf="showAccountNotFound" class="mt-3"> <!-- Add margin-top for spacing -->
+  <ngb-alert [type]="'danger'"> <!-- Use 'danger' for a red alert -->
+    <h4 class="alert-heading">Sorry,  No Account Request Found</h4>
+    <p class="mb-0">Please verify the information and try again.</p>
+    <button class="btn btn-danger" (click)="refreshfun()">Try Again</button>
+  </ngb-alert>
+</div>
 
-
-<div class="container mt-4">
+<div class="container mt-4" *ngIf="accountRequestTrue">
     <h2>Account List</h2>
     <div class="row">
       <!-- First column with the table -->
@@ -48,11 +54,4 @@
       </div>
     </div>
   </div>
-  <div *ngIf="showAccountNotFound" class="modal-overlay">
-    <div class="modal-dialog">
-      <ngb-alert class="bg-danger">
-        <h1 class="text-white">Sorry, Account Not Found</h1>
-        <button class="btn btn-success" (click)="refreshfun()">Clear</button>
-      </ngb-alert>
-    </div>
-  </div>
+ 

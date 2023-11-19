@@ -15,16 +15,19 @@ export class AdminAccountRequestComponent {
   }
   accounts: any[] = [];
   showAccountNotFound=false
+  accountRequestTrue=false
   constructor(private auth:AccountServiceService)
    {
     this.auth.ShowAccountRequest().subscribe(
       {
       next:(data: any) => {
         this.accounts = data;
+        this.accountRequestTrue=true
       },
       error:(error:HttpErrorResponse) => {
         console.error('Error fetching accounts:', error);
        this.showAccountNotFound=true
+       this.accountRequestTrue=false
       }
     }
     );
@@ -37,6 +40,7 @@ export class AdminAccountRequestComponent {
         next:(res)=>
         {
           alert("account Activated Successfully")
+          location.reload()
         },
         error:(err:HttpErrorResponse)=>
         {

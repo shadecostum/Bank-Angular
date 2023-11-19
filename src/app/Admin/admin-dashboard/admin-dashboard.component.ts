@@ -3,12 +3,13 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { DataServiceService } from 'src/app/service/data-service.service';
 import { QueryServiceService } from 'src/app/service/query-service.service';
 import { TransactionServiceService } from 'src/app/service/transaction-service.service';
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.css']
+  styleUrls: ['./admin-dashboard.component.css'] 
 })
 export class AdminDashboardComponent {
   faCoffee = faCoffee;
@@ -18,7 +19,8 @@ export class AdminDashboardComponent {
 
   constructor(private dateFilter:TransactionServiceService,
     private routeSet:Router,
-    private QueryRequest:QueryServiceService)
+    private QueryRequest:QueryServiceService,
+    private datas:DataServiceService)
   {
     
   }
@@ -112,7 +114,7 @@ get cutomerIdValidator()
 
 
 
-
+eroorQuerySubmit=false
 onSubmit(formData:any) {
 
     // Assuming you have a method in your service to handle the data submission
@@ -129,6 +131,7 @@ onSubmit(formData:any) {
       error:(error:HttpErrorResponse) => {
         console.log(error);
         console.log("error here");
+       this.eroorQuerySubmit=true
         
         
       }
@@ -141,10 +144,7 @@ onSubmit(formData:any) {
   generateReplyForm()
   {
 this.formShow=true;
-this. showCustomerAll=false
-this.showAccountTransactions=false 
-this.showAccountRequest=false;
-this.showQueryResult=false;
+
   }
 
   //accounrequest
@@ -198,5 +198,11 @@ showAccountRequestFun()
   
 }
 
+logout() {
+  // Call the logout method to clear user-related data
+  this.datas.logout();
+  this.routeSet.navigateByUrl("")
+  // Additional logout logic (e.g., redirect to login page) can be added here
+}
 
 }

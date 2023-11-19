@@ -24,7 +24,7 @@
         <a routerLink="/admin" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2">
           <i class="fas fa-chart-pie fa-fw me-3"></i><span>Queries</span>
         </a>
-        <a routerLink="/admin" routerLinkActive="active"  class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
+        <a  (click)="logout()" routerLinkActive="active"  class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
           ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Logout</span></a
         >
       
@@ -162,7 +162,7 @@
       <div class="card h-100">
         <img src="../../../assets/query2.jpg" class="card-img-top" alt="Hollywood Sign on The Hill"/>
         <div class="card-body">
-          <h5 class="card-title">View Query Request</h5>
+          <h5 class="card-title">View Query Request</h5> 
           <p class="card-text">
             You can view the Customer Query Here
           </p>
@@ -203,6 +203,13 @@
       </div>
     </div>
     <!-- Repeat similar structures for other cards -->
+  </div>
+  <div *ngIf="eroorQuerySubmit" class="mt-3"> <!-- Add margin-top for spacing -->
+    <ngb-alert [type]="'danger'"> <!-- Use 'danger' for a red alert -->
+      <h4 class="alert-heading">Check you have Entered correct CustomerId</h4>
+      <p class="mb-0">Please verify the information and try again.</p>
+      <button class="btn btn-danger" (click)="reset()">Try Again</button>
+    </ngb-alert>
   </div>
   <ngb-alert *ngIf="noQueryAdded" >
     Sorry No Query Request Added <button type="button" class="btn btn-success" (click)="reset()">Clear</button> 

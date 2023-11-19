@@ -13,6 +13,16 @@ export class DataServiceService {
   private _userId: number = 0;
   private _customerId: number = 0;
   private _accountId: number = 0;
+  private _role: string = ''; 
+
+  set role(value: string) {
+    this._role = value;
+    this.updateUserDataInLocalStorage();
+  }
+
+  get role(): string {
+    return this._role;
+  }
 
   set userName(value: string) {
     this._userName = value;
@@ -56,6 +66,7 @@ export class DataServiceService {
       userId: this._userId,
       customerId: this._customerId,
       accountId: this._accountId,
+      role: this._role,
     };
     localStorage.setItem('userData', JSON.stringify(userData));
   }
@@ -68,6 +79,7 @@ export class DataServiceService {
       this._userId = userData.userId || 0;
       this._customerId = userData.customerId || 0;
       this._accountId = userData.accountId || 0;
+      this._role = userData.role || ''; 
     }
   }
 
@@ -78,6 +90,7 @@ logout() {
   this._userId = 0;
   this._customerId = 0;
   this._accountId = 0;
+  this._role = '';
  
   // Update the local storage
   this.updateUserDataInLocalStorage();

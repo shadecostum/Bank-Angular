@@ -85,7 +85,7 @@ onSubmitDeposite(Formdata:any)
     {
       console.log(err);
       console.log("error here");
-      
+      this.depositeError=true
       
     }
   }
@@ -121,7 +121,7 @@ get wdescriptionValidator()
 {
   return this.withdrawForm.get('description')
 }
-
+depositeError=false
 onSubmitWithdraw(Formdata:any)
 {
 this.auth.withdrawAmount(Formdata).subscribe(
@@ -137,6 +137,7 @@ this.auth.withdrawAmount(Formdata).subscribe(
     {
       console.log(err);
       console.log("error here");
+     this.depositeError=true
     }
   }
 )
@@ -172,7 +173,8 @@ get tDescriptionValidator()
 {
   return this.transferForm.get('description')
 }
-showvalidAccount=false
+//showvalidAccount=false
+TransferError=false
 onSubmitTransfer(FormData:any)
 {
 this.auth.transferAmount(FormData).subscribe(
@@ -188,7 +190,8 @@ this.auth.transferAmount(FormData).subscribe(
     {
       console.log(err);
       console.log("error here");
-      this.showvalidAccount=true
+    //  this.showvalidAccount=true
+      this.TransferError=true
       
       
     }

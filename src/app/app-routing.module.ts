@@ -8,13 +8,14 @@ import { CutomerDashboardComponent } from './Customer/cutomer-dashboard/cutomer-
 import { CustomerRegisterComponent } from './Customer/customer-register/customer-register.component';
 import { CustomerDocumentComponent } from './Customer/customer-document/customer-document.component';
 import { CustomertTransactionComponent } from './Customer/customert-transaction/customert-transaction.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
   {path:"registerForm",component:SignupPageComponent},
   {path:"weather",component:WeatherComponent},
-  {path:"admin",component:AdminDashboardComponent},
-  {path:"customer",component:CutomerDashboardComponent},
+  {path:"admin",component:AdminDashboardComponent,canActivate:[authGuard]},
+  {path:"customer",component:CutomerDashboardComponent,canActivate:[authGuard]},
   {path:"customerRegister",component:CustomerRegisterComponent},
   {path:"customerDocument",component:CustomerDocumentComponent},
   {path:"customerTransaction",component:CustomertTransactionComponent}
