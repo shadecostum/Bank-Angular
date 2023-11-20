@@ -25,7 +25,7 @@ twoDateFilterUrl="https://localhost:7078/api/Transaction/DateFilter"//need to mo
 fetchCustomerDetailsUrl="https://localhost:7078/api/Customer/customerDataFetch"//for customer fetching
 
   constructor(private http:HttpClient) { }
-
+ 
 public RegisterCustomer(data:any)
 {
   return this.http.post(this.customerRegisterUrl,data)

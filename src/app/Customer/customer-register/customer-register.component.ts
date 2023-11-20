@@ -9,7 +9,7 @@ import { DataServiceService } from 'src/app/service/data-service.service';
 @Component({
   selector: 'app-customer-register',
   templateUrl: './customer-register.component.html',
-  styleUrls: ['./customer-register.component.css']
+  styleUrls: ['./customer-register.component.css'] 
 })
 export class CustomerRegisterComponent {
 
@@ -40,7 +40,7 @@ export class CustomerRegisterComponent {
   }
   get emailValidator()
   {
-    return this.customerRegisterForm.get('email')
+    return this.customerRegisterForm.get('email') 
   }
  
   // get userValidator()

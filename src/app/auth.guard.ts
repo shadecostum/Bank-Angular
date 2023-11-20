@@ -1,12 +1,21 @@
-import { CanActivateFn } from '@angular/router';
+import { CanActivateFn, Router } from '@angular/router';
 import { DataServiceService } from './service/data-service.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
-
-  const dataService = new DataServiceService(); // You might want to inject this properly in a real application
+ // var router: Router
+ 
+  const dataService = new DataServiceService(); 
   const userRole = dataService.role;
+  // const currentRoute = router.url;
 
-
+//  if (userRole=="Admin" )
+// {
+//   return true
+// }
+// else if (userRole=="Customer") 
+// {
+//   return true
+// }
  
   return true;
 };
