@@ -41,13 +41,16 @@
         </table>
       </div>
   
+
+
+
       <!-- Second column with the search form -->
       <div class="col-md-4">
         <h5>search customer id to view  customer uploaded document</h5>
-        <form class="mb-4 mt-4">
+        <form [formGroup]="searchForm" class="mb-4 mt-4" (ngSubmit)="onSubmit(searchForm.value)">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search by Customer ID" [(ngModel)]="searchCustomerId" />
-            <button class="btn btn-outline-secondary" type="button" (click)="searchDocument()">Search</button>
+            <input type="text" class="form-control" placeholder="Search by Customer ID" formControlName="documentId" />
+            <button class="btn btn-outline-secondary" type="submit">Search</button>
           </div>
         </form>
         <!-- Additional content related to search, if needed... -->
@@ -55,3 +58,7 @@
     </div>
   </div>
  
+  <div *ngIf="documents">
+    <h3>Image for Customer ID {{ searchCustomerId }}</h3>
+    <img [src]="imageSource" alt="Document Image"  />
+  </div>

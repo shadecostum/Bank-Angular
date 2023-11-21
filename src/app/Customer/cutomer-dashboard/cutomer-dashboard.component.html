@@ -1,46 +1,6 @@
 
 <header>
-    <!-- Sidebar -->
-    <!-- <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-dark">
-      <div class="position-sticky">
-        <div class="list-group list-group-flush mx-3 mt-4  ">
-          <a
-            href="/customer" 
-            class="list-group-item list-group-item-action py-2 ripple"
-            aria-current="true"
-          >
-         <span>  Customer dashboard</span>
-          </a>
-          <a  routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
-          (click)="showAccountCreateFun()"><i class="fas fa-lock fa-fw me-3"></i><span>Register Customer </span></a
-        >
-        <a  routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
-        (click)="showAccountRequestFun()"><i class="fas fa-lock fa-fw me-3"></i><span>Request Account  </span></a
-      >
-      
-          <a routerLinkActive="active"
-           class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
-           (click)="showTransactionFun()">
-           <i class="fas fa-lock fa-fw me-3"></i><span>Transaction</span></a
-          >
-          <a routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
-          (click)="showDocumentFun()">
-          <i class="fas fa-chart-line fa-fw me-3"></i>
-          <span>Upload Documents</span>
-       </a>
-          <a routerLinkActive="active" (click)="queyFunShow()" class="list-group-item list-group-item-action py-2 ripple mt-lg-2">
-            <span>View All Query Asked</span>
-          </a>
-          <a  routerLinkActive="active"  class="list-group-item list-group-item-action py-2 ripple mt-lg-2"
-           (click)="logout()">
-            <i class="fas fa-chart-bar fa-fw me-3"></i><span>LogOut Customer</span></a
-          >
-        
-        
-        </div>
-      </div>
-    </nav> -->
-    <!-- Sidebar -->
+  
 
 
 
@@ -76,25 +36,10 @@
       </div>
     </nav>
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    <!-- Navbar -->
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-primary-subtle fixed-top">
-      <!-- Container wrapper -->
+
       <div class="container-fluid">
-        <!-- Toggle button -->
+
         <button
           class="navbar-toggler"
           type="button"
@@ -106,8 +51,6 @@
         >
           <i class="fas fa-bars"></i>
         </button>
-     
-        <!-- Brand -->
         <a class="navbar-brand" href="/customer">
           <img
           src="../../../assets/logo.png"
@@ -120,7 +63,7 @@
         <ul class="navbar-nav ms-auto d-flex flex-row">
          <li><h1 *ngIf="needRegistartion">Create customer </h1></li>
           <li><h1>Welcome {{userName}}  </h1></li>
-          <!-- Avatar -->
+
           <li class="nav-item dropdown g-1">
            
               <img
@@ -134,13 +77,11 @@
           </li>
         </ul>
       </div>
-      <!-- Container wrapper -->
+
     </nav>
-    <!-- Navbar -->
+
   </header>
-  <!--Main Navigation-->
-  
-  <!--Main layout-->
+
   <main style="margin-top: 58px;">
   
    
@@ -176,7 +117,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col" (click)="fdcalculator()">
         <div class="card h-100">
           <img src="../../../assets/calculator.jpg" class="card-img-top" alt="Hollywood Sign on The Hill"/>
           <div class="card-body">
@@ -187,11 +128,9 @@
           </div>
         </div>
       </div>
-   
-      <!-- Repeat similar structures for other cards -->
+
     </div>
-   
-    <!-- passbook.component.html -->
+
 
     <div *ngIf="showPassbook">
     <app-customer-passbook></app-customer-passbook>
@@ -230,6 +169,10 @@
      <app-view-query></app-view-query>
     </div>
 
+    <div *ngIf="showCalculator">
+      <app-fd-calculator></app-fd-calculator>
+    </div>
+
   </main>
-  <!--Main layout-->
- 
+
+

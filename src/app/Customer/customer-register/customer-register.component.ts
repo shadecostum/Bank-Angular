@@ -13,6 +13,12 @@ import { DataServiceService } from 'src/app/service/data-service.service';
 })
 export class CustomerRegisterComponent {
 
+
+
+
+
+
+  
     
   customerRegisterForm=new FormGroup(
     {

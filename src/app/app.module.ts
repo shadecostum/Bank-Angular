@@ -35,6 +35,9 @@ import { SetInterestComponent } from './Admin/set-interest/set-interest.componen
 import { ViewQueryComponent } from './Customer/view-query/view-query.component';
 import { TransactionShowComponent } from './Admin/transaction-show/transaction-show.component';
 import { CrudCustomerComponent } from './Admin/crud-customer/crud-customer.component';
+import { NgChartsModule } from 'ng2-charts';
+import { FdCalculatorComponent } from './Customer/fd-calculator/fd-calculator.component';
+
 
 
 
@@ -65,13 +68,13 @@ import { CrudCustomerComponent } from './Admin/crud-customer/crud-customer.compo
     ViewQueryComponent,
     TransactionShowComponent,
     CrudCustomerComponent,
-
+    FdCalculatorComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,ReactiveFormsModule,HttpClientModule, FontAwesomeModule,FormsModule
+    NgbModule,ReactiveFormsModule,HttpClientModule, FontAwesomeModule,FormsModule,NgChartsModule
   ],
   providers: [
     {

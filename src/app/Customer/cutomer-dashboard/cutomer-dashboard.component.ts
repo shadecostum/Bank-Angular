@@ -7,7 +7,7 @@ import { AccountServiceService } from 'src/app/service/account-service.service';
 import { CustomerServiceService } from 'src/app/service/customer-service.service';
 import { DataServiceService } from 'src/app/service/data-service.service';
 
-@Component({
+@Component({ 
   selector: 'app-cutomer-dashboard',
   templateUrl: './cutomer-dashboard.component.html',
   styleUrls: ['./cutomer-dashboard.component.css']
@@ -214,6 +214,34 @@ logout() {
   this.routeSet.navigateByUrl("")
   // Additional logout logic (e.g., redirect to login page) can be added here
 }
+showCardsState = true;
+showCards() {
+  this.showQueryTab = false
+  this.showTransaction = false
+  this.showAccountCreate = false;
+  this.showDocument = false;
+  this.showQuery = false
+  this.showAccountCreate = false;
+  this.showPassbook = false;
+  this.showAccountForm = false;
+  this.showCalculator = false;
+}
+showCalculator = false;
+fdcalculator() {
+  this.showQueryTab = false
+  this.showTransaction = false
+  this.showAccountCreate = false;
+  this.showDocument = false;
+  this.showQuery = false
+  this.showAccountCreate = false;
+  this.showPassbook = false;
+  this.showAccountForm = false;
+  this.showCalculator = true;
+  this.showCardsState = false;
+}
 
  
 }
+
+
+

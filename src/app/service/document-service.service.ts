@@ -11,6 +11,8 @@ export class DocumentServiceService {
 
   showDocumentUrl="https://localhost:7078/api/Doc/"
 
+  showDocumnebtIdUrl="https://localhost:7078/api/Doc"
+
   constructor(private http:HttpClient) { }
 
 
@@ -21,6 +23,6 @@ public uploadDocument(data:any)
 
 public GetuploadDocument(data:any)
 {
-  return this.http.get(this.documentUploadUrl+"/"+data)
+  return this.http.get(this.showDocumnebtIdUrl+"/"+data)
 }
 }
