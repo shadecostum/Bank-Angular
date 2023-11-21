@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { DataServiceService } from 'src/app/service/data-service.service';
 
 import { DocumentServiceService } from 'src/app/service/document-service.service';
 
@@ -13,7 +14,7 @@ export class CustomerDocumentComponent {
   customerDocumentForm = new FormGroup({
     DocumentType: new FormControl('', Validators.required),
     DocumentFile: new FormControl(null, Validators.required), // Use null for file input
-    CustomerId: new FormControl(0, Validators.required),
+    customerId: new FormControl(0, Validators.required),
   });
 
   get TypeValidator() {
@@ -25,21 +26,23 @@ export class CustomerDocumentComponent {
   }
 
   get customerValidator() {
-    return this.customerDocumentForm.get('CustomerId');
+    return this.customerDocumentForm.get('customerId');
   }
-
-  constructor(private auth: DocumentServiceService) {}
+  cutomerId:any
+  constructor(private auth: DocumentServiceService,private datas:DataServiceService) {
+    this.cutomerId=datas.customerId
+  }
 
   onFileChange(event: any) {
     const file = event.target.files[0];
     this.customerDocumentForm.patchValue({
       DocumentFile: file
     });
-  }
+  } 
 
   submitData() {
     const formData = new FormData();
-    formData.append('CustomerId', this.customerDocumentForm.get('CustomerId')?.value?.toString() ?? '');
+    formData.append('customerId', this.customerDocumentForm.get('customerId')?.value?.toString() ?? '');
     formData.append('DocumentType', this.customerDocumentForm.get('DocumentType')?.value?.toString() ?? '');
   
     const documentFile = this.customerDocumentForm.get('DocumentFile')?.value as File | null | undefined;

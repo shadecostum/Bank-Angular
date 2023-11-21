@@ -31,7 +31,8 @@
         <!-- Customer ID -->
         <div class="mb-3">
           <label for="customerId" class="form-label">Customer ID:</label>
-          <input type="number" formControlName="CustomerId" class="form-control">
+          <input type="number" formControlName="customerId" placeholder="{{cutomerId}}"
+         class="form-control" [(ngModel)]="cutomerId" readonly />
           <div *ngIf="customerValidator && customerValidator.invalid && customerValidator.touched" class="text-danger">
             Customer ID is required.
           </div>
@@ -42,4 +43,4 @@
       </form>
     </div>
   </div>
-</div>
+</div> 
