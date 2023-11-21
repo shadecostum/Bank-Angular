@@ -16,10 +16,15 @@ export class TransactionServiceService {
 
   showAllTransactionsUrl="https://localhost:7078/api/Transaction/showAllTransaction";
 
-  showIdTransactionUrl="";
+  showActiveTransactionUrl="https://localhost:7078/api/Account/activeAccounts";
 
 
   constructor(private http:HttpClient) { }
+
+  public showActiveAccountNumber()
+  {
+    return this.http.get(this.showActiveTransactionUrl)
+  }
 
 
 getTransactionByDate(data:any)

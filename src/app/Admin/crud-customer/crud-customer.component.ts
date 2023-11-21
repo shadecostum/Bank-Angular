@@ -100,6 +100,7 @@ export class CrudCustomerComponent {
       {
          alert("successfully updated")
          console.log(data);
+         location.reload()
          
         },
         error:(err:HttpErrorResponse)=>
@@ -172,6 +173,7 @@ export class CrudCustomerComponent {
         {
           console.log(data);
           alert("Successfully Deleted")
+          location.reload()
         },
         error:(err:HttpErrorResponse)=>
         {

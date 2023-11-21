@@ -37,6 +37,7 @@ import { TransactionShowComponent } from './Admin/transaction-show/transaction-s
 import { CrudCustomerComponent } from './Admin/crud-customer/crud-customer.component';
 import { NgChartsModule } from 'ng2-charts';
 import { FdCalculatorComponent } from './Customer/fd-calculator/fd-calculator.component';
+import { AdminRegisterComponent } from './Admin/admin-register/admin-register.component';
 
 
 
@@ -68,7 +69,8 @@ import { FdCalculatorComponent } from './Customer/fd-calculator/fd-calculator.co
     ViewQueryComponent,
     TransactionShowComponent,
     CrudCustomerComponent,
-    FdCalculatorComponent
+    FdCalculatorComponent,
+    AdminRegisterComponent
 
   ],
   imports: [

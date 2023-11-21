@@ -86,7 +86,8 @@
       </tbody>
     </table>
   
-    <!-- Display a message if there are no transactions -->
-   
-  </div>
+ 
   
+  <button (click)="downloadTable()" [disabled]="downloading" class="btn btn-primary">
+    {{ downloading ? 'Downloading...' : 'Download Table' }}
+  </button>

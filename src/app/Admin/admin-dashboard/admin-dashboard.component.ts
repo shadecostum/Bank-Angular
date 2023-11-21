@@ -272,17 +272,19 @@ export class AdminDashboardComponent {
   totalQueries = 342;
   totalRequests = 243;
 
-  userName: string = 'Admin'
+  userName: any;
 
 
   constructor(private dateFilter: TransactionServiceService,
     private routeSet: Router,
     private QueryRequest: QueryServiceService,
     private datas: DataServiceService) {
+this.userName=datas.userName
+
 
 
   }
-
+ 
 
   reset() {
     this.noQueryAdded = false
@@ -513,6 +515,28 @@ showCrud()
   {
 this.showCrudeState=true
 
+    this.showTransactionState=false
+    this.showUpdateInterest=false
+    this.showAccountRequest=false;
+    this.showAccountTransactions=false 
+    this.formShow=false;
+    this.showQueryResult=false;
+    this. showCustomerAll=false;
+  }
+
+
+
+
+
+  ///guys new Change here  //one change in html
+  adminRegister=false
+  registerNewAdmin()
+  {
+    this.adminRegister=true
+
+
+
+    this.showCrudeState=false
     this.showTransactionState=false
     this.showUpdateInterest=false
     this.showAccountRequest=false;
