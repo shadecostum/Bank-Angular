@@ -20,11 +20,10 @@ export class CutomerDashboardComponent {
   userId:any;
   customerDataStore:any;
   customerId:any;
-
-
   newUserId=this.datas.userId
   newAccounId=this.datas.accountId
   newUserName=this.datas.userName
+
  // newCustomerid=this.datas.customerId not work
   needRegistartion=false//showing registartion needed
   showWarrning=false//create account request
@@ -38,9 +37,9 @@ export class CutomerDashboardComponent {
     this.userId=datas.userId,
    
     console.log("someValue",this.userId);
-     
+      
 
-    auth.getCustomerById(this.userId).subscribe(
+    auth.UserIdFetchcustomerId(this.userId).subscribe(
       {
         next:(data)=>
         {
@@ -51,50 +50,17 @@ export class CutomerDashboardComponent {
           console.log("CustomerId",this.customerId);
           
           datas.customerId=this.customerId
-
-          if(datas.customerId !=null)
-          {
-            console.log("customerId",this.customerId);
-            
-            forAccount.AccountIdGetByCustomerId(this.customerId).subscribe(
-              {
-                next:(res)=>
-                {
-                  //need to create account id
-                  this.accountStorage=res
-                  datas.accountId=this.accountStorage.accountNumber
-                },
-                error:(err:HttpErrorResponse)=>
-                {
-                  console.log(err);
-                  console.log("account id not created");
-                }
-              }
-            )
-          }
           
         },
         error:(err:HttpErrorResponse)=>
         {
           console.log(err);
           console.log("error in customerId not created ");
-          
-          
         }
       }
     )
 
-     //create a function to by customerId account id fetch
-   
-  
-    
   } 
-
-  
-
-
- 
-  
 
   reset(){location.reload()}
 
@@ -104,11 +70,16 @@ showPassbook=false;
 //view Pass book
 viewPassbook()
 {
-  if(this.customerId != null)
-  {
+  
     this.showPassbook=true;
-  }
 
+    this.showQuery=false
+    this.showDocument = false;
+    this.showAccountCreate=false;
+    this.showTransaction=false;
+    this.showAccountForm=false;
+    this.showAccountStatment=false
+    this.showQueryTab=false
 }
 
 //show Account statment
@@ -124,6 +95,7 @@ this.showAccountCreate=false;
 this.showTransaction=false;
 this.showAccountForm=false;
 this.showPassbook=false;
+this.showQueryTab=false
 }
  
 
@@ -141,6 +113,7 @@ this.showAccountCreate=false;
 this.showTransaction=false;
 this.showAccountForm=false;
 this.showPassbook=false;
+this.showQueryTab=false
 }
 
 
@@ -157,6 +130,7 @@ showDocumentFun() {
  this.showTransaction=false;
  this.showAccountForm=false;
  this.showPassbook=false;
+ this.showQueryTab=false
 }
 
 
@@ -173,6 +147,7 @@ this.showAccountCreate=true;
   this.showAccountForm=false;
   this.showPassbook=false;
   this.showAccountStatment=false
+  this.showQueryTab=false
 
 
 }
@@ -186,13 +161,14 @@ showTransactionFun()
 this.showTransaction=true
   
   
-  this.showAccountCreate=false;
+
   this.showDocument = false;
   this.showQuery=false
   this.showAccountCreate=false;
   this.showAccountForm=false;
   this.showPassbook=false;
   this.showAccountStatment=false
+  this.showQueryTab=false
   
   
 }
@@ -207,13 +183,13 @@ this.showAccountForm=true;
 
   
   this.showTransaction=false
-  this.showAccountCreate=false;
   this.showDocument = false;
   this.showQuery=false
   this.showAccountCreate=false;
   this.showPassbook=false;
   this.showWarrning=true
   this.showAccountStatment=false
+  this.showQueryTab=false
 }
 
 
@@ -225,7 +201,6 @@ queyFunShow()
  this.showQueryTab=true
  
  this.showTransaction=false
- this.showAccountCreate=false;
  this.showDocument = false;
  this.showQuery=false
  this.showAccountCreate=false;

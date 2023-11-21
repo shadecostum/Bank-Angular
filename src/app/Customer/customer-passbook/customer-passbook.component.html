@@ -1,17 +1,28 @@
-
+<div>
+<form [formGroup]="accountForm" (ngSubmit)="onSubmit(accountForm.value)" class="col-md-6 mx-auto">
+  <div class="form-group">
+    <label for="accountType">Select Account Number:</label>
+    <select formControlName="accountType" class="form-control account-select">
       
-      <!-- <div class="col-md-4 d-flex align-items-start">
-        <input type="number" [(ngModel)]="FilterData" class="form-control" placeholder="Enter AccountNumber Filter transaction  ">
-        <button (click)="AccountSatement()" class="btn btn-success">Account Number </button>
-      </div> -->
+      <option *ngFor="let item of accountStorage" [value]="item.accountNumber">{{ item.accountNumber }}</option>
+    </select>
+    <div *ngIf="accountTypeValidator && accountTypeValidator.invalid && accountTypeValidator.touched" class="text-danger">
+      Account type is required.
+    </div>
+  </div> 
+  <button type="submit" class="btn btn-primary" [disabled]="accountForm.invalid">Submit</button>
+</form>
+</div>
+ 
 
+       
       <div *ngIf="createAccount">
         <ngb-alert>
           <h1>Create Account to view Passbook</h1>
           <button (click)="refreshFun()">Clear</button>
         </ngb-alert>
       </div>
-    
+      
      
     <div *ngIf="resultcondition">
         <div class="container mt-4">

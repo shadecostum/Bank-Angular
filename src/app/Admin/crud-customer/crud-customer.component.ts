@@ -4,12 +4,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomerServiceService } from 'src/app/service/customer-service.service';
 
 @Component({
-  selector: 'app-update-customer',
-  templateUrl: './update-customer.component.html',
-  styleUrls: ['./update-customer.component.css']
+  selector: 'app-crud-customer',
+  templateUrl: './crud-customer.component.html',
+  styleUrls: ['./crud-customer.component.css']
 })
-export class UpdateCustomerComponent {
-fetchSingleData: any={};
+export class CrudCustomerComponent {
+  fetchSingleData: any={};
 
   constructor(private auth:CustomerServiceService)
   {
@@ -55,16 +55,13 @@ fetchSingleData: any={};
   }
 
 
-
-
-
-
   customerRegisterForm=new FormGroup(
     {
       customerId:new FormControl('',[Validators.required]),
       firstName:new FormControl('',[Validators.required]),
       lastName:new FormControl('',[Validators.required]),
       email:new FormControl('',[Validators.required,Validators.email]),
+      userId:new FormControl('',[Validators.required])
      
     },
   
@@ -85,16 +82,20 @@ fetchSingleData: any={};
     return this.customerRegisterForm.get('email')
   }
  
-  get userValidator()
+  get customerValidator()
   {
     return this.customerRegisterForm.get('customerId')
+  }
+  get userValidatorId()
+  {
+    return this.customerRegisterForm.get('userId')
   }
 
 
   submitData(data:any)
   {
     this.auth.UpdateCustomer(data).subscribe(
-      {
+      { 
         next:(data)=>
       {
          alert("successfully updated")
@@ -109,5 +110,80 @@ fetchSingleData: any={};
       }
     )
   }
+
+  UpdateCustomer=false
+  DeleteCustomer=false
+  showDeleteForm()
+  {
+    this.DeleteCustomer=true
+    this.UpdateCustomer=false
+  }
+
+  showUpdateForm()
+  {
+    this.DeleteCustomer=false
+    this.UpdateCustomer=true
+  }
+
+
+  //Delete Form 
+  customerDeleteForm=new FormGroup(
+    {
+      customerId:new FormControl('',[Validators.required]),
+      firstName:new FormControl('',[Validators.required]),
+      lastName:new FormControl('',[Validators.required]),
+      email:new FormControl('',[Validators.required,Validators.email]),
+      userId:new FormControl('',[Validators.required])
+     
+    },
+  
+
+  )
+  
+  get DfirstNameValidator()
+  {
+    return this.customerDeleteForm.get('firstName')
+  }
+  get DlastNameValidator()
+  {
+    return this.customerDeleteForm.get('lastName')
+  }
+
+  get DemailValidator()
+  {
+    return this.customerDeleteForm.get('email')
+  }
+ 
+  get DcustomerValidator()
+  {
+    return this.customerDeleteForm.get('customerId')
+  }
+  get DuserValidatorId()
+  {
+    return this.customerDeleteForm.get('userId')
+  }
+
+
+  submitDeleteData(data:any)
+  {
+    this.auth.DeleteCustomer(data.customerId).subscribe(
+      {
+        next:(data)=>
+        {
+          console.log(data);
+          alert("Successfully Deleted")
+        },
+        error:(err:HttpErrorResponse)=>
+        {
+          console.log(err);
+
+          
+        }
+      }
+    )
+  }
+
+
+
 
 }

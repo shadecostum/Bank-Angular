@@ -6,7 +6,7 @@ import { DataServiceService } from 'src/app/service/data-service.service';
 
 @Component({
   selector: 'app-request-account',
-  templateUrl: './request-account.component.html',
+  templateUrl: './request-account.component.html', 
   styleUrls: ['./request-account.component.css']
 })
 export class RequestAccountComponent {
@@ -16,8 +16,8 @@ export class RequestAccountComponent {
  
   accountForm = new FormGroup({
     accountType: new FormControl('', Validators.required),
-    accountBalance: new FormControl('',[Validators.required,Validators.min(0)]),
-    customerId: new FormControl(''),
+    accountBalance:new FormControl('',Validators.required),
+    customerId:new FormControl('',[Validators.required])
   });
 
   get accountTypeValidator()
@@ -29,14 +29,15 @@ get accountBalanceValidator()
 {
   return this.accountForm.get('accountBalance')
 }
+get customerIdValidator()
+{
+  return this.accountForm.get('customerId')
+}
 
 
 cutomerId:any
 constructor(private auth:AccountServiceService,datas:DataServiceService){
-  
- 
 this.cutomerId=datas.customerId
-
 }
 
 

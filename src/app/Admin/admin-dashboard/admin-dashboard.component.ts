@@ -79,6 +79,7 @@ noQueryAdded=false;
         this.showAccountRequest=false;
         this.showAccountTransactions=false 
         this.showTransactionState=false
+        this.showCrudeState=false
       },
       error:(err:HttpErrorResponse)=>
       {
@@ -146,6 +147,7 @@ this. showCustomerAll=false
 this.showAccountTransactions=false
 this.showAccountRequest=false;
 this.showTransactionState=false
+this.showCrudeState=false
 
   }
 
@@ -159,6 +161,7 @@ this.showAccountTransactions=false
 this.formShow=false;
 this.showQueryResult=false;
 this.showTransactionState=false
+this.showCrudeState=false
   }
 
   //
@@ -171,6 +174,7 @@ this.showTransactionState=false
     this.formShow=false;
    this.showQueryResult=false;
    this.showTransactionState=false
+   this.showCrudeState=false
   }
 
   //showCustomerAll
@@ -179,11 +183,13 @@ showCustomerAll=false
 showCustomerFun()
 {
  this. showCustomerAll=true
+ 
  this.showAccountRequest=false;
  this.showAccountTransactions=false 
  this.formShow=false;
  this.showQueryResult=false;
  this.showTransactionState=false;
+ this.showCrudeState=false
 }
 //update interest
 showUpdateInterest=false
@@ -197,6 +203,7 @@ UpdateInterest()
   this.formShow=false;
   this.showQueryResult=false;
   this.showTransactionState=false
+  this.showCrudeState=false
 }
 
 
@@ -211,8 +218,23 @@ showTransaction()
   this.formShow=false;
   this.showQueryResult=false;
   this. showCustomerAll=false;
- 
+  this.showCrudeState=false
 }
+
+//crud customer
+showCrudeState=false
+showCrud()
+  {
+this.showCrudeState=true
+
+    this.showTransactionState=false
+    this.showUpdateInterest=false
+    this.showAccountRequest=false;
+    this.showAccountTransactions=false 
+    this.formShow=false;
+    this.showQueryResult=false;
+    this. showCustomerAll=false;
+  }
 
 logout() {
   // Call the logout method to clear user-related data

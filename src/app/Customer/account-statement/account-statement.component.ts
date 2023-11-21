@@ -24,7 +24,7 @@ showPassbook=false;
 viewPassbook(id:any)
 {
 
-this.auth.ViewPassBook(id).subscribe(
+this.auth.ViewPassBook(id).subscribe( 
 {
   next:(data)=>
   {

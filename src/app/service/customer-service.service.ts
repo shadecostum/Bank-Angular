@@ -16,13 +16,16 @@ passbookViewUrl="https://localhost:7078/api/Customer/passbook?id";
 
 askQueryUrl="https://localhost:7078/api/Query/customerAskQuery";
 
-updateCustoemrUrl="https://localhost:7078/api/Customer"
+updateCustoemrUrl="https://localhost:7078/api/Customer/"
 
 paginationUrl="";
 
 twoDateFilterUrl="https://localhost:7078/api/Transaction/DateFilter"//need to modify 
 
-fetchCustomerDetailsUrl="https://localhost:7078/api/Customer/customerDataFetch"//for customer fetching
+fetchCustomerDetailsUrl="https://localhost:7078/api/Customer/customerDataFetch"//for customer fetching if
+
+
+DeleteCustomerUrl="https://localhost:7078/api/Customer?id"
 
   constructor(private http:HttpClient) { }
  
@@ -47,9 +50,12 @@ public SHowAllCustomer()
 }
 public getCustomerById(id:any)
 {
+  return this.http.get(this.getCustomerByIdUrl+"/"+id)
+}
+public UserIdFetchcustomerId(id:any)
+{
   return this.http.get(this.fetchCustomerDetailsUrl+"/"+id)
 }
-
 
 public paginationBank(pgNo ?:number,pgSize?:number)
 {
@@ -66,6 +72,16 @@ public twoDateFilter(data:any)
 public UpdateCustomer(data:any)
 {
  return this.http.put(this.updateCustoemrUrl,data)
+}
+
+public getOneCustomer(data:any)
+{
+  return this.http.get(this.getCustomerByIdUrl+"/"+data)
+}
+
+public DeleteCustomer(id:any)
+{
+  return this.http.delete(this.DeleteCustomerUrl+"="+id)
 }
 
 

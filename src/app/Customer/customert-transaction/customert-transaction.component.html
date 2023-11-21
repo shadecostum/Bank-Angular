@@ -34,7 +34,7 @@
             <div class="card-header">Click here Withdraw Cash</div>
             <div class="card-body">
               <p class="card-text">Withdraw Money from your account</p>
-            </div>
+            </div> 
           </button>
         </div>
         
@@ -48,16 +48,20 @@
         </div>
         
       </div>
-   <!-- withdraw    -->
+
       <!-- Right Column with Form -->
       <div class="col-md-6" *ngIf="transferShow">
         <form [formGroup]="transferForm" (ngSubmit)="onSubmitTransfer(transferForm.value)">
-            <div class="form-group">
-                <label for="exampleInputAccountNumber">Account Number</label>
-                <input type="number" class="form-control" formControlName="accountNumber"
-                 placeholder="{{accountNumber}}"   [(ngModel)]="accountNumber"  readonly>
-              </div>
-
+          <div class="form-group">
+            <label for="accountType"> Select Account Number Select:</label>
+            <select formControlName="accountId" class="form-control">
+             
+              <option *ngFor="let item of accountStorage" [value]="item.accountNumber">{{ item.accountNumber }}</option>
+            </select>
+            <div *ngIf="tAccountNumberValidator && tAccountNumberValidator.invalid && tAccountNumberValidator.touched" class="text-danger">
+              Account Number is required.
+            </div>
+          </div> 
               <div class="form-group">
                 <label for="exampleInputAccountNumber">Target Account Number</label>
                 <input type="number" class="form-control" formControlName="targetAccountNumber" 
@@ -87,11 +91,16 @@
       <div class="col-md-6" *ngIf="depositeShow">
    
         <form [formGroup]="depositeForm" (ngSubmit)="onSubmitDeposite(depositeForm.value)">
-            <div class="form-group">
-                <label for="exampleInputAccountNumber">Account Number</label>
-                <input type="number" class="form-control" formControlName="accountId"
-                 placeholder="{{accountNumber}}"   [(ngModel)]="accountNumber"  readonly>
-              </div>
+          <div class="form-group">
+            <label for="accountType"> Select Account Number Select:</label>
+            <select formControlName="accountId" class="form-control">
+             
+              <option *ngFor="let item of accountStorage" [value]="item.accountNumber">{{ item.accountNumber }}</option>
+            </select>
+            <div *ngIf="accountNumberValidator && accountNumberValidator.invalid && accountNumberValidator.touched" class="text-danger">
+              Account Number is required.
+            </div>
+          </div> 
             <div class="form-group">
               <label for="transactionType">Transaction Type</label>
               <select class="form-control" formControlName="transactionType">
@@ -125,11 +134,15 @@
        
         <form [formGroup]="withdrawForm" (ngSubmit)="onSubmitWithdraw(withdrawForm.value)">
           <div class="form-group">
-            <label for="exampleInputAccountNumber">Account Number</label>
-            <input type="number" class="form-control" formControlName="accountId"
-             placeholder="{{accountNumber}}"   [(ngModel)]="accountNumber"  readonly>
-          </div>
-              <div class="form-group">
+            <label for="accountType"> Select Account Number Select:</label>
+            <select formControlName="accountId" class="form-control">
+              <option *ngFor="let item of accountStorage" [value]="item.accountNumber">{{ item.accountNumber }}</option>
+            </select>
+            <div *ngIf="waccountNumberValidator && waccountNumberValidator.invalid && waccountNumberValidator.touched" class="text-danger">
+              Account Number is required.
+            </div>
+          </div> 
+              <div class="form-group mt-4">
                 <label for="transactionType">Transaction Type</label>
                 <select class="form-control" formControlName="transactionType">
                   <option value="Withdraw">Withdraw</option>

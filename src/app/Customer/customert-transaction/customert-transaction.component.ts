@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { faLaptopHouse } from '@fortawesome/free-solid-svg-icons';
+import { AccountServiceService } from 'src/app/service/account-service.service';
 import { DataServiceService } from 'src/app/service/data-service.service';
 import { TransactionServiceService } from 'src/app/service/transaction-service.service';
 
@@ -13,13 +14,40 @@ import { TransactionServiceService } from 'src/app/service/transaction-service.s
 export class CustomertTransactionComponent {
 
 
-accountNumber:any
+accountNumber:any 
 
 
-
-constructor(private auth:TransactionServiceService,private datas:DataServiceService)
+accountStorage:any
+constructor(private auth:TransactionServiceService,
+  private datas:DataServiceService,
+  private fetchAccount:AccountServiceService)
 {
 this.accountNumber=datas.accountId
+if(datas.customerId !=null)
+    {
+      
+      
+      fetchAccount.AccountIdGetByCustomerId(datas.customerId).subscribe(
+        {
+          next:(res)=>
+          {
+            //here returing list
+            this.accountStorage=res
+            datas.accountId=this.accountStorage.accountNumber
+          },
+          error:(err:HttpErrorResponse)=>
+          {
+            console.log(err);
+            console.log("account id not created");
+          }
+        }
+      )
+    }
+
+
+
+
+
 }
 
   depositeShow=false
@@ -44,7 +72,7 @@ this.accountNumber=datas.accountId
 
 //deposite form validation
   depositeForm = new FormGroup({
-    accountId: new FormControl(''),
+    accountId: new FormControl('',Validators.required),
     transactionType: new FormControl('Deposit', Validators.required),
     transactionAmount: new FormControl('', [Validators.required, Validators.min(0)]),
     description: new FormControl('',Validators.required)
@@ -72,8 +100,11 @@ this.accountNumber=datas.accountId
 
 onSubmitDeposite(Formdata:any)
 {
+  console.log(Formdata);
  this.auth.DepositeAmount(Formdata).subscribe(
   {
+    
+    
     next:(data)=>
     {
       console.log(data);
@@ -97,7 +128,7 @@ onSubmitDeposite(Formdata:any)
 //
 
 withdrawForm = new FormGroup({
-  accountId: new FormControl(''),
+  accountId: new FormControl('',Validators.required),
   transactionType: new FormControl('withdraw', Validators.required),
   transactionAmount: new FormControl('', [Validators.required, Validators.min(0)]),
   description: new FormControl('',Validators.required)
@@ -149,7 +180,7 @@ this.auth.withdrawAmount(Formdata).subscribe(
 
 //transfer Amount
 transferForm = new FormGroup({
-  accountNumber: new FormControl(''),
+  accountId: new FormControl('',Validators.required),
   targetAccountNumber: new FormControl('', Validators.required),
   amount: new FormControl('', [Validators.required, Validators.min(0)]),
   description: new FormControl('',Validators.required)
@@ -157,7 +188,7 @@ transferForm = new FormGroup({
 
 get tAccountNumberValidator()
 {
-  return this.transferForm.get('accountNumber')
+  return this.transferForm.get('accountId')
 }
 
 get targetAccountNumberValidator()

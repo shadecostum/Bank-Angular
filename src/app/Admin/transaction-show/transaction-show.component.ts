@@ -13,7 +13,7 @@ export class TransactionShowComponent {
   constructor(private auth:TransactionServiceService){
   
   this.auth.showAllTransaction().subscribe(
-    {
+    { 
       next:(data)=>
       {
         this.transactions=data

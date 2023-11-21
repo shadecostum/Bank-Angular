@@ -13,28 +13,28 @@ constructor(private auth:AccountServiceService)
 {
 
 }
-
+ 
 accounts:any[]=[]
 FilterData:any
 resultcondition=false
-resultArray=false
+resultArray=false 
 FilterAccount()
 {this.auth.AccountFilter(this.FilterData).subscribe(
   {
-    next:(data:any)=>
-    {
-      if (data === null || (typeof data === 'object' && Object.keys(data).length === 0)) {
-        this.resultcondition = false;
-        this.resultArray=true;
+    // next:(data:any)=>
+    // {
+    //   if (data === null || (typeof data === 'object' && Object.keys(data).length === 0)) {
+    //     this.resultcondition = false;
+    //     this.resultArray=true;
 
-      } else if (Array.isArray(data)) {
-        this.accounts = data;
-        console.log(data);
-        this.resultcondition = true;
-      } else {
-        console.error("Unexpected data format:", data);
-      }
-    }
+    //   } else if (Array.isArray(data)) {
+    //     this.accounts = data;
+    //     console.log(data);
+    //     this.resultcondition = true;
+    //   } else {
+    //     console.error("Unexpected data format:", data);
+    //   }
+    // }
   }
 )
 

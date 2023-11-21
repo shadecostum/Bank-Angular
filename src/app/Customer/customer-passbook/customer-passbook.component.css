@@ -41,4 +41,45 @@
   .container:nth-child(odd) table:nth-child(2) {
     border: 2px solid #dc3545; /* Border color for the Transaction Details table */
   }
-  
+  /* Style the surrounding div */
+div {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc; /* Initial border */
+  border-radius: 4px;
+  transition: border 0.3s ease-in-out; /* Add a transition effect */
+}
+
+div:hover {
+  border: 1px solid #007bff; /* Change the border color on hover */
+}
+
+/* Add some styling to the form and select dropdown */
+form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Style the select dropdown */
+.account-select {
+  width: 100%;
+  padding: 10px;
+}
+
+/* Style the error message */
+.text-danger {
+  color: #dc3545; /* Red color for error text */
+  margin-top: 5px;
+}
+
+/* Style the submit button */
+.btn-primary {
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}

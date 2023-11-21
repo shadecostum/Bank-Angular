@@ -34,6 +34,7 @@ import { TwoDateFilterComponent } from './Customer/two-date-filter/two-date-filt
 import { SetInterestComponent } from './Admin/set-interest/set-interest.component';
 import { ViewQueryComponent } from './Customer/view-query/view-query.component';
 import { TransactionShowComponent } from './Admin/transaction-show/transaction-show.component';
+import { CrudCustomerComponent } from './Admin/crud-customer/crud-customer.component';
 
 
 
@@ -63,6 +64,7 @@ import { TransactionShowComponent } from './Admin/transaction-show/transaction-s
     SetInterestComponent,
     ViewQueryComponent,
     TransactionShowComponent,
+    CrudCustomerComponent,
 
 
   ],
